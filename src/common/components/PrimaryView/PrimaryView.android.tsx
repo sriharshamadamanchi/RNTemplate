@@ -4,8 +4,8 @@ import { FocusAwareStatusBar } from './FocusAwareStatusBar/FocusAwareStatusBar';
 import { theme } from '../../theme';
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
+  container: {
+    flex: 1,
     backgroundColor: theme.colors.background.primary
   }
 });
@@ -17,15 +17,14 @@ interface primaryViewPropsType {
   offlineBannerStyle?: any,
   safeAreaTopColor?: "default" | "base" | "primary",
   safeAreaBottomColor?: "default" | "base" | "primary",
-  defaultColor?: boolean,
-  showHubOfflineBanner?: boolean
+  defaultColor?: boolean
 };
 
-export const PrimaryView = ({ children, barStyle = 'dark-content', defaultColor = false, showHubOfflineBanner = true }: primaryViewPropsType) => {
+export const PrimaryView = ({ children, barStyle = 'dark-content', defaultColor = false }: primaryViewPropsType) => {
 
   return (
-    <View style = {styles.container}>
-      <FocusAwareStatusBar barStyle = {barStyle} defaultColor = {defaultColor}/>
+    <View style={styles.container}>
+      <FocusAwareStatusBar barStyle={barStyle} defaultColor={defaultColor} />
       {children}
     </View>
   );

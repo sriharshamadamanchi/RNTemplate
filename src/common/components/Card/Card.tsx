@@ -27,14 +27,14 @@ const styles = StyleSheet.create({
 });
 
 interface cardType {
-    onPress?: () => void,
-    onLongPress?: () => void,
-    children: any,
-    style?: any,
-    disabled?: boolean,
-    useRipple?: boolean,
-    testID?: string,
-    accessibilityLabel?: string
+  onPress?: () => void,
+  onLongPress?: () => void,
+  children: any,
+  style?: any,
+  disabled?: boolean,
+  useRipple?: boolean,
+  testID?: string,
+  accessibilityLabel?: string
 };
 
 export const Card = ({ children, disabled, onPress, onLongPress, useRipple = true, style, testID, accessibilityLabel }: cardType) => {

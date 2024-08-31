@@ -5,8 +5,8 @@ import { FocusAwareStatusBar } from './FocusAwareStatusBar/FocusAwareStatusBar';
 import { SafeViewRenderer } from './SafeViewRenderer/SafeViewRenderer';
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
+  container: {
+    flex: 1,
     backgroundColor: theme.colors.background.primary
   }
 });
@@ -18,25 +18,24 @@ interface primaryViewPropsType {
   offlineBannerStyle?: any,
   safeAreaTopColor?: "default" | "base" | "primary" | "light",
   safeAreaBottomColor?: "default" | "base" | "primary",
-  defaultColor?: boolean,
-  showHubOfflineBanner?: boolean
+  defaultColor?: boolean
 };
 
-export const PrimaryView = ({ children, safeAreaTopColor, safeAreaBottomColor, offlineBannerStyle, hideSafeViewRenderer = false, barStyle = 'dark-content', defaultColor = false, showHubOfflineBanner = true }: primaryViewPropsType) => {
+export const PrimaryView = ({ children, safeAreaTopColor, safeAreaBottomColor, offlineBannerStyle, hideSafeViewRenderer = false, barStyle = 'dark-content', defaultColor = false }: primaryViewPropsType) => {
 
   if (hideSafeViewRenderer) {
     return (
-      <View style = {styles.container}>
-        <FocusAwareStatusBar barStyle = {barStyle} defaultColor = {defaultColor}/>
+      <View style={styles.container}>
+        <FocusAwareStatusBar barStyle={barStyle} defaultColor={defaultColor} />
         {children}
       </View>
     );
   }
 
   return (
-    <SafeViewRenderer safeAreaTopColor = {safeAreaTopColor} safeAreaBottomColor = {safeAreaBottomColor} >
-      <View style = {styles.container}>
-        <FocusAwareStatusBar barStyle = {barStyle} defaultColor = {defaultColor}/>
+    <SafeViewRenderer safeAreaTopColor={safeAreaTopColor} safeAreaBottomColor={safeAreaBottomColor} >
+      <View style={styles.container}>
+        <FocusAwareStatusBar barStyle={barStyle} defaultColor={defaultColor} />
         {children}
       </View>
     </SafeViewRenderer>
