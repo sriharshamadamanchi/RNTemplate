@@ -1,4 +1,4 @@
-import { failedLoadingAction, type failedLoadingActionType, hideLoaderAction, removeLoaderAction, type removeLoaderActionType, resetAllLoadersAction, showLoaderAction, startLoadingAction, type startLoadingActionType, successLoadingAction, type successLoadingActionType, resetReducersAction } from './actions';
+import { failedLoadingAction, type failedLoadingActionType, hideLoaderAction, removeLoaderAction, type removeLoaderActionType, resetAllLoadersAction, resetReducersAction, showLoaderAction, startLoadingAction, type startLoadingActionType, successLoadingAction, type successLoadingActionType } from './actions';
 import { createReducer, resetState } from "../store/typeSafe";
 
 const initialState = {

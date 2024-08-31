@@ -5,25 +5,25 @@ import { theme } from '../../theme';
 import { Ripple } from '../Ripple/Ripple';
 
 const styles = StyleSheet.create({
-    cardStyle: {
-        // flex: 1,
-        backgroundColor: theme.colors.background.default,
-        borderRadius: moderateScale(10),
-        padding: moderateScale(10),
-        marginVertical: moderateScale(8),
+  cardStyle: {
+    // flex: 1,
+    backgroundColor: theme.colors.background.default,
+    borderRadius: moderateScale(10),
+    padding: moderateScale(10),
+    marginVertical: moderateScale(8),
 
+  },
+  cardShadowStyle: {
+    // generate shadow using: https://ethercreative.github.io/react-native-shadow-generator/
+    shadowColor: theme.colors.shadow,
+    shadowOffset: {
+      width: 0,
+      height: 1,
     },
-    cardShadowStyle: {
-        // generate shadow using: https://ethercreative.github.io/react-native-shadow-generator/
-        shadowColor: theme.colors.shadow,
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.18,
-        shadowRadius: 1.0,
-        elevation: 1,
-    }
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
+    elevation: 1,
+  }
 });
 
 interface cardType {
@@ -38,39 +38,39 @@ interface cardType {
 };
 
 export const Card = ({ children, disabled, onPress, onLongPress, useRipple = true, style, testID, accessibilityLabel }: cardType) => {
-    if (disabled) {
-        return (<TouchableOpacity
-            testID={testID}
-            accessibilityLabel={accessibilityLabel}
-            disabled={disabled}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            style={[styles.cardStyle, styles.cardShadowStyle, style]}>
-            {children}
-        </TouchableOpacity>);
-    }
+  if (disabled) {
+    return (<TouchableOpacity
+      testID={testID}
+      accessibilityLabel={accessibilityLabel}
+      disabled={disabled}
+      onPress={onPress}
+      onLongPress={onLongPress}
+      style={[styles.cardStyle, styles.cardShadowStyle, style]}>
+      {children}
+    </TouchableOpacity>);
+  }
 
-    if (useRipple) {
-        return (<Ripple
-            testID={testID}
-            accessibilityLabel={accessibilityLabel}
-            rippleContainerBorderRadius={{ ...styles.cardStyle, ...styles.cardShadowStyle }.borderRadius}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            style={[styles.cardStyle, styles.cardShadowStyle, style]}>
-            {children}
-        </Ripple>
-        );
-    }
-
-    return (
-        <TouchableOpacity
-            testID={testID}
-            accessibilityLabel={accessibilityLabel}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            style={[styles.cardStyle, styles.cardShadowStyle, style]}>
-            {children}
-        </TouchableOpacity>
+  if (useRipple) {
+    return (<Ripple
+      testID={testID}
+      accessibilityLabel={accessibilityLabel}
+      rippleContainerBorderRadius={{ ...styles.cardStyle, ...styles.cardShadowStyle }.borderRadius}
+      onPress={onPress}
+      onLongPress={onLongPress}
+      style={[styles.cardStyle, styles.cardShadowStyle, style]}>
+      {children}
+    </Ripple>
     );
+  }
+
+  return (
+    <TouchableOpacity
+      testID={testID}
+      accessibilityLabel={accessibilityLabel}
+      onPress={onPress}
+      onLongPress={onLongPress}
+      style={[styles.cardStyle, styles.cardShadowStyle, style]}>
+      {children}
+    </TouchableOpacity>
+  );
 };

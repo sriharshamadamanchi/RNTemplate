@@ -9,36 +9,36 @@ import { HomeTab } from "./Home/Home";
 const Stack = createStackNavigator();
 
 export const Home = () => {
-    const initialRouteName = "HomeTab"
-    return (
-        <Stack.Navigator key={initialRouteName} initialRouteName={initialRouteName}
-            screenOptions={{
-                headerTitleAlign: 'center',
-                headerBackTitleVisible: false,
-                headerStyle: {
-                    backgroundColor: theme.colors.background.primary,
-                    height: Platform.OS === 'android' ? moderateScale(50) : 0
-                },
-                headerTitleStyle: {
-                    fontSize: theme.fontSizes.xl20,
-                    color: theme.colors.font.primary,
-                    fontFamily: theme.fonts.bold,
-                    marginHorizontal: moderateScale(20),
-                },
-                headerTitle: ({ children }: { children: string }) => {
-                    return (
-                        <Label primary bold xl20 title={children} ellipsizeMode={"tail"} numberOfLines={1} style={{ marginHorizontal: moderateScale(25) }} />
-                    );
-                },
-            }}
-        >
-            <Stack.Screen
-                options={(): any => {
-                    return {
-                        title: "Home"
-                    };
-                }}
-                name="HomeTab" component={HomeTab} />
-        </Stack.Navigator>
-    )
+  const initialRouteName = "HomeTab"
+  return (
+    <Stack.Navigator key={initialRouteName} initialRouteName={initialRouteName}
+      screenOptions={{
+        headerTitleAlign: 'center',
+        headerBackTitleVisible: false,
+        headerStyle: {
+          backgroundColor: theme.colors.background.primary,
+          height: Platform.OS === 'android' ? moderateScale(50) : 0
+        },
+        headerTitleStyle: {
+          fontSize: theme.fontSizes.xl20,
+          color: theme.colors.font.primary,
+          fontFamily: theme.fonts.bold,
+          marginHorizontal: moderateScale(20),
+        },
+        headerTitle: ({ children }: { children: string }) => {
+          return (
+            <Label primary bold xl20 title={children} ellipsizeMode={"tail"} numberOfLines={1} style={{ marginHorizontal: moderateScale(25) }} />
+          );
+        },
+      }}
+    >
+      <Stack.Screen
+        options={(): any => {
+          return {
+            title: "Home"
+          };
+        }}
+        name="HomeTab" component={HomeTab} />
+    </Stack.Navigator>
+  )
 }

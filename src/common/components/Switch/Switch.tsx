@@ -13,14 +13,14 @@ interface switchType {
 };
 export const Switch = ({ style, onChange, isChecked, componentName, testID, accessibilityLabel, disabled = false }: switchType): any => {
 
-    return (
-        <PaperSwitch
-            disabled={disabled}
-            testID={testID}
-            accessibilityLabel={accessibilityLabel}
-            value={isChecked}
-            color={theme.colors.background.base}
-            onValueChange={() => onChange(!isChecked)
-            } />
-    );
+  return (
+    <PaperSwitch
+      disabled={disabled}
+      testID={testID}
+      accessibilityLabel={accessibilityLabel}
+      value={isChecked}
+      color={theme.colors.background.base}
+      onValueChange={() => onChange(!isChecked)
+      } />
+  );
 };

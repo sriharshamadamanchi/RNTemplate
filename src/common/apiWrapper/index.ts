@@ -10,13 +10,13 @@ export const mainAxios: any = axios.create({
   timeout: API_TIMEOUT
 });
 
-export const doRefreshToken = async () => {};
+export const doRefreshToken = async () => { };
 
 // Add a request interceptor
-const requestInterceptor ={
+const requestInterceptor = {
   onSuccess: async (config: any) => {
     try {
-
+      //
     } catch (error) {
       console.log('error in axios.interceptors.request', error);
     }
@@ -26,7 +26,7 @@ const requestInterceptor ={
     }
     return config;
   },
-  onError:(error: any): any => {
+  onError: (error: any): any => {
     Promise.reject(error);
   }
 };
@@ -34,8 +34,8 @@ const requestInterceptor ={
 mainAxios.interceptors.request.use(requestInterceptor.onSuccess, requestInterceptor.onError);
 
 // Add a response interceptor
-const responseInterceptor ={
-  onSuccess:(response: any): any => {
+const responseInterceptor = {
+  onSuccess: (response: any): any => {
     if (__DEV__) {
       console.log("response", response);
     }
@@ -47,10 +47,10 @@ const responseInterceptor ={
 
     return response;
   },
-  onError:async (error: any) => {
+  onError: async (error: any) => {
     const originalRequest = error.config;
 
-      return Promise.reject(new Error());
+    return Promise.reject(new Error());
   }
 };
 
