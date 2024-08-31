@@ -10,3 +10,4 @@ export { RadioButton } from './RadioButton/RadioButton';
 export { AvatarIcon } from "./Avatar/AvatarIcon"
 export { AvatarImage } from "./Avatar/AvatarImage"
 export { AvatarLabel } from "./Avatar/AvatarLabel"
+export { Banner } from "./Banner/Banner"

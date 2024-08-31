@@ -1,14 +1,8 @@
 import * as React from 'react';
-import { Avatar } from 'react-native-paper';
+import { Avatar, AvatarTextProps } from 'react-native-paper';
 import { theme } from '../../theme';
 
-type AvatarLabelPropsType = {
-    label: string;
-    size?: number;
-    style?: any;
-    labelStyle?: any;
-    color?: string,
-
+interface AvatarLabelProps extends AvatarTextProps {
     // Label Style
     white?: boolean,
     secondary?: boolean,
@@ -34,7 +28,7 @@ type AvatarLabelPropsType = {
 };
 
 
-export const AvatarLabel = (props: AvatarLabelPropsType) => {
+export const AvatarLabel = (props: AvatarLabelProps) => {
 
     const labelStyle = {
         fontSize: theme.fontSizes.l,

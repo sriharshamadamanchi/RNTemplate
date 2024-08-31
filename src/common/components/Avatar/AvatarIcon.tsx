@@ -1,14 +1,7 @@
 import * as React from 'react';
-import { Avatar } from 'react-native-paper';
+import { Avatar, AvatarIconProps } from 'react-native-paper';
 
-type AvatarIconPropsType = {
-    icon: string;
-    size?: number;
-    color?: string;
-    style?: any;
-};
-
-export const AvatarIcon = (props: AvatarIconPropsType) => {
+export const AvatarIcon = (props: AvatarIconProps) => {
     return (
         <Avatar.Icon {...props} />
     )

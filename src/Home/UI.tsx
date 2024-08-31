@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
-import { AvatarLabel, Label, LoadingIndicator, AvatarIcon } from "../common/components";
+import { AvatarLabel, Label, LoadingIndicator, AvatarIcon, Banner } from "../common/components";
 import { moderateScale } from "react-native-size-matters";
 
 const styles = StyleSheet.create({
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
         height: moderateScale(50),
         right: moderateScale(20)
     }
-
 })
 
 const Loader = () => {
@@ -50,6 +49,24 @@ const ALabel = () => {
     )
 }
 
+const ABanner = () => {
+    return (
+        <Banner
+            visible={true}
+            actions={[
+                {
+                    label: "Cancel",
+                }
+            ]}
+            renderBanner={() => {
+                return (
+                    <Label title="This is a custom banner from react native paper" />
+                )
+            }}
+        />
+    )
+}
+
 export const UI = () => {
 
     return (
@@ -57,6 +74,7 @@ export const UI = () => {
             <UI.Loader />
             <UI.AvatarIcon />
             <UI.AvatarText />
+            <UI.Banner />
         </ScrollView>
     )
 
@@ -65,3 +83,4 @@ export const UI = () => {
 UI.Loader = Loader
 UI.AvatarIcon = AIcon
 UI.AvatarText = ALabel
+UI.Banner = ABanner
