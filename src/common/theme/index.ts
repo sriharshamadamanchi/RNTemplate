@@ -3,10 +3,11 @@ import { colors } from './colors';
 
 const font: any = {
   fonts: {
-    light: "Quicksand-Light",
-    regular: "Quicksand-Regular",
-    medium: "Quicksand-Medium",
-    bold: "Quicksand-Bold"
+    light: "Rubik-Light",
+    regular: "Rubik-Regular",
+    medium: "Rubik-Medium",
+    semibold: "Rubik-SemiBold",
+    bold: "Rubik-Bold"
   },
   fontSizes: {
     xs: moderateScale(11),

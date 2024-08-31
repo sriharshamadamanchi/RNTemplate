@@ -4,35 +4,36 @@ import { theme } from '../../theme';
 import { ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE } from '../../constants';
 
 interface labelPopsType {
-    title: string,
-    center?: boolean,
-    right?: boolean,
-    white?: boolean,
-    secondary?: boolean,
-    primary?: boolean,
-    light?: boolean,
-    regular?: boolean,
-    medium?: boolean,
-    bold?: boolean,
+  title: string,
+  center?: boolean,
+  right?: boolean,
+  white?: boolean,
+  secondary?: boolean,
+  primary?: boolean,
+  light?: boolean,
+  regular?: boolean,
+  medium?: boolean,
+  semibold?: boolean,
+  bold?: boolean,
 
-    xs?: boolean,
-    s?: boolean,
-    m?: boolean,
-    l?: boolean,
-    xl?: boolean,
-    xl20?: boolean,
-    xl22?: boolean,
-    xxl?: boolean,
-    xxxl?: boolean,
-    xxxl34?: boolean,
-    xxxxl?: boolean,
-    xl5?: boolean,
-    style?: any,
-    ellipsizeMode?: string,
-    numberOfLines?: number,
-    testID?: string,
-    accessibilityLabel?: string,
-    allowFontScaling?: boolean
+  xs?: boolean,
+  s?: boolean,
+  m?: boolean,
+  l?: boolean,
+  xl?: boolean,
+  xl20?: boolean,
+  xl22?: boolean,
+  xxl?: boolean,
+  xxxl?: boolean,
+  xxxl34?: boolean,
+  xxxxl?: boolean,
+  xl5?: boolean,
+  style?: any,
+  ellipsizeMode?: string,
+  numberOfLines?: number,
+  testID?: string,
+  accessibilityLabel?: string,
+  allowFontScaling?: boolean
 
 };
 export const Label = ({
@@ -45,6 +46,7 @@ export const Label = ({
   light,
   regular,
   medium,
+  semibold,
   bold,
 
   xs,
@@ -86,6 +88,7 @@ export const Label = ({
   light && (newStyle.fontFamily = theme.fonts.light);
   regular && (newStyle.fontFamily = theme.fonts.regular);
   medium && (newStyle.fontFamily = theme.fonts.medium);
+  semibold && (newStyle.fontFamily = theme.fonts.semibold);
   bold && (newStyle.fontFamily = theme.fonts.bold);
 
   // Easily Set Font Sizes

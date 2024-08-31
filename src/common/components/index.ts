@@ -7,3 +7,6 @@ export { Switch } from './Switch/Switch';
 export { AnchorButton } from './AnchorButton/AnchorButton';
 export { LoadingIndicator } from './LoadingIndicator/LoadingIndicator';
 export { RadioButton } from './RadioButton/RadioButton';
+export { AvatarIcon } from "./Avatar/AvatarIcon"
+export { AvatarImage } from "./Avatar/AvatarImage"
+export { AvatarLabel } from "./Avatar/AvatarLabel"
