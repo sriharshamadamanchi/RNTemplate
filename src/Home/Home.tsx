@@ -1,12 +1,10 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Label } from "../common/components";
+import { UI } from "./UI";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1
   }
 })
 
@@ -14,7 +12,7 @@ export const HomeTab = () => {
 
   return (
     <View style={styles.container}>
-      <Label xxl primary title="Home" />
+      <UI />
     </View>
   )
 

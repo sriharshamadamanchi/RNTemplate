@@ -12,27 +12,27 @@ export default [
 
     settings: {
       react: {
-        version: "detect",
+        version: "detect"
       },
 
       "import/resolver": {
         node: {
           extensions: [".js", ".android.js", ".ios.js", ".svg", ".ts", ".tsx", ".android.tsx", ".ios.tsx", ".android.ts", ".ios.ts"]
-        },
-      },
+        }
+      }
     },
 
     languageOptions: {
       parser: parser,
       parserOptions: {
         ecmaFeatures: {
-          jsx: true,
-        },
+          jsx: true
+        }
       },
       globals: {
         ...globals.jest,
         ...globals.node,
-        "__DEV__": true
+        "__DEV__": "readonly"
       }
     },
 
@@ -73,12 +73,19 @@ export default [
       "react/no-string-refs": "off",
       "react/no-children-prop": "error",
       "react/no-direct-mutation-state": "off",
-      "array-bracket-spacing": "off",
-      "block-spacing": "off",
+      "array-bracket-spacing": "error",
+      "block-spacing": "error",
       "brace-style": "error",
       "camelcase": "off",
-      "comma-dangle": "off",
+      "comma-dangle": "error",
       "comma-spacing": ["error", { "before": false, "after": true }],
+      "key-spacing": [
+        "error",
+        {
+          "beforeColon": false,
+          "afterColon": true
+        }
+      ],
       "arrow-body-style": "off",
       "arrow-parens": "error",
       "arrow-spacing": "error",
@@ -223,6 +230,6 @@ export default [
       "react/no-unused-prop-types": "off",
       "react/no-unsafe": "off",
       "react/style-prop-object": "off"
-    },
-  },
+    }
+  }
 ];
