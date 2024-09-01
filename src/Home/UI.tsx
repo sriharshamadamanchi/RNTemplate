@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
-import { AvatarLabel, Label, LoadingIndicator, AvatarIcon, Banner, AnchorButton, Card, CurvedButton, CheckButton, RadioButton, Switch } from "../common/components";
+import { AvatarLabel, Label, LoadingIndicator, AvatarIcon, Banner, AnchorButton, Card, CurvedButton, CheckBox, RadioButton, Switch } from "../common/components";
 import { moderateScale } from "react-native-size-matters";
 
 const styles = StyleSheet.create({
@@ -78,24 +78,30 @@ const _CurvedButton = () => {
     )
 }
 
-const _CheckButton = () => {
+const _CheckBox = () => {
     const [checked, setChecked] = React.useState(false)
 
     return (
         <View style={[styles.component]}>
             <Label semibold title="Check Button" />
-            <CheckButton checked={checked} onPress={() => { setChecked(!checked) }} />
+            <CheckBox checked={checked} onPress={() => { setChecked(!checked) }} />
         </View>
     )
 }
 
 const _RadioButton = () => {
-    const [checked, setChecked] = React.useState(false)
+    const [checked, setChecked] = React.useState("")
 
     return (
         <View style={[styles.component]}>
             <Label semibold title="Radio Button" />
-            <RadioButton label="" status={checked} onChange={() => { setChecked(!checked) }} />
+            <RadioButton value="checked" checked={checked} onPress={() => {
+                if (!checked) {
+                    setChecked("checked")
+                } else {
+                    setChecked("")
+                }
+            }} />
         </View>
     )
 }
@@ -141,7 +147,7 @@ export const UI = () => {
             <UI.AnchorButton />
             <UI.Card />
             <UI.CurvedButton />
-            <UI.CheckButton />
+            <UI.CheckBox />
             <UI.RadioButton />
             <UI.Switch />
         </ScrollView>
@@ -156,6 +162,6 @@ UI.Banner = _Banner
 UI.AnchorButton = _AnchorButton
 UI.Card = _Card
 UI.CurvedButton = _CurvedButton
-UI.CheckButton = _CheckButton
+UI.CheckBox = _CheckBox
 UI.RadioButton = _RadioButton
 UI.Switch = _Switch

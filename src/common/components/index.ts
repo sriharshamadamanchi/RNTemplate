@@ -2,7 +2,7 @@ export { Label } from './Label/Label';
 export { Card } from './Card/Card';
 export { CurvedButton } from './CurvedButton/CurvedButton';
 export { Divider } from './Divider/Divider';
-export { CheckButton } from './CheckButton/CheckButton';
+export { CheckBox } from './CheckBox/CheckBox';
 export { Switch } from './Switch/Switch';
 export { AnchorButton } from './AnchorButton/AnchorButton';
 export { LoadingIndicator } from './LoadingIndicator/LoadingIndicator';

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Checkbox as PaperCheckbox, useTheme } from 'react-native-paper';
-import { moderateScale, scale } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   containerStyle: {
@@ -9,7 +8,7 @@ const styles = StyleSheet.create({
   }
 });
 
-interface checkButtonType {
+type CheckBoxProps = {
   checked?: boolean,
   disabled?: boolean,
   onPress?: () => void,
@@ -17,13 +16,13 @@ interface checkButtonType {
   testID?: string
 };
 
-export const CheckButton = ({ disabled, checked, onPress = () => { }, containerStyle = {}, testID }: checkButtonType) => {
+export const CheckBox = ({ disabled, checked, onPress = () => { }, containerStyle = {}, testID }: CheckBoxProps) => {
 
   const mTheme = useTheme()
 
   return (
     <View style={[styles.containerStyle, containerStyle]}>
-      <PaperCheckbox
+      <PaperCheckbox.Android
         status={checked ? 'checked' : 'unchecked'}
         disabled={disabled}
         onPress={onPress}

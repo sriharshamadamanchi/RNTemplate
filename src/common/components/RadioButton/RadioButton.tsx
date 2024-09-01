@@ -1,61 +1,36 @@
-import React from 'react';
-import { StyleSheet, Text } from 'react-native';
-import { ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE } from "../../constants";
-import { theme } from "../../theme";
-// @ts-ignore
-import Checkbox from "react-native-modest-checkbox";
-import { moderateScale } from 'react-native-size-matters';
-import { Ripple } from '../Ripple/Ripple';
-
-interface radioButtonType {
-  status: boolean,
-  label: string,
-  onChange: () => void,
-  componentName?: string,
-  disabled?: boolean,
-  containerStyle?: any,
-  textStyle?: any,
-  testID?: string,
-  accessibilityLabel?: string,
-  value?: string
-};
+import * as React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { RadioButton as PaperRadioButton, useTheme } from 'react-native-paper';
 
 const styles = StyleSheet.create({
   containerStyle: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  textStyle: {
-    color: theme.colors.primary,
-    paddingLeft: moderateScale(5),
-    fontSize: theme.font.fontSizes.l,
-    fontFamily: theme.font.fontFamily.medium
-  },
-  disabledTextStyle: {
-    color: theme.colors.secondary
+    transform: [{ scale: 1.2 }]
   }
 });
-export const RadioButton = ({ status, label, onChange, componentName, disabled, testID, accessibilityLabel, containerStyle, textStyle }: radioButtonType): any => {
+
+type RadioButtonProps = {
+  value: string,
+  checked?: string,
+  disabled?: boolean,
+  onPress?: () => void,
+  containerStyle?: any,
+  testID?: string
+};
+
+export const RadioButton = ({ value, disabled, checked, onPress = () => { }, containerStyle = {}, testID }: RadioButtonProps) => {
+
+  const mTheme = useTheme()
 
   return (
-    <Ripple
-      testID={testID}
-      accessibilityLabel={accessibilityLabel}
-      disabled={disabled}
-      onPress={() => {
-        onChange();
-      }} style={[styles.containerStyle, containerStyle]}>
-      <Checkbox
-        noFeedback={true}
-        containerStyle={{
-          width: moderateScale(20),
-          height: moderateScale(20)
-        }}
-        label={""}
-        onChange={() => { }}
-        checked={status}
+    <View style={[styles.containerStyle, containerStyle]}>
+      <PaperRadioButton.Android
+        value={value}
+        status={checked === value ? 'checked' : 'unchecked'}
+        disabled={disabled}
+        onPress={onPress}
+        uncheckedColor={mTheme.colors.primary}
+        testID={testID}
       />
-      <Text maxFontSizeMultiplier={ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE} numberOfLines={2} style={[styles.textStyle, disabled === true ? styles.disabledTextStyle : {}, textStyle]}>{label}</Text>
-    </Ripple>
+    </View>
   );
 };
