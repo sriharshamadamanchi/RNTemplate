@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { Switch as PaperSwitch } from 'react-native-paper';
 
 const styles = StyleSheet.create({
   containerStyle: {
-    transform: [{ scale: 1.2 }]
+    transform: [{ scale: Platform.select({ android: 1.2, ios: 1 }) ?? 1 }]
   }
 });
 
