@@ -1,44 +1,35 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
-// @ts-ignore
-import Checkbox from "react-native-modest-checkbox";
-import { moderateScale } from 'react-native-size-matters';
+import { StyleSheet, View } from 'react-native';
+import { Checkbox as PaperCheckbox, useTheme } from 'react-native-paper';
+import { moderateScale, scale } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   containerStyle: {
-    width: moderateScale(40),
-    height: moderateScale(40)
+    transform: [{ scale: 1.2 }]
   }
 });
 
 interface checkButtonType {
   checked?: boolean,
-  events?: string,
+  disabled?: boolean,
   onPress?: () => void,
-  height?: number,
-  width?: number,
-  label?: string,
-  labelStyle?: Object,
-  style?: any,
-  componentName?: string,
   containerStyle?: any,
-  testID?: string,
-  accessibilityLabel?: string
+  testID?: string
 };
 
-export const CheckButton = ({ label = "", labelStyle = {}, checked, events, onPress = () => { }, height, width, style, componentName, containerStyle, testID, accessibilityLabel }: checkButtonType) => {
+export const CheckButton = ({ disabled, checked, onPress = () => { }, containerStyle = {}, testID }: checkButtonType) => {
+
+  const mTheme = useTheme()
+
   return (
-    <Checkbox
-      noFeedback={true}
-      containerStyle={{ ...styles.containerStyle, ...style, ...containerStyle }}
-      label={label}
-      labelStyle={labelStyle}
-      onChange={() => {
-        onPress();
-      }}
-      checked={checked}
-      testID={testID}
-      accessibilityLabel={accessibilityLabel}
-    />
+    <View style={[styles.containerStyle, containerStyle]}>
+      <PaperCheckbox
+        status={checked ? 'checked' : 'unchecked'}
+        disabled={disabled}
+        onPress={onPress}
+        uncheckedColor={mTheme.colors.primary}
+        testID={testID}
+      />
+    </View>
   );
 };
