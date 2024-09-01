@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 type CheckBoxProps = {
   checked?: boolean,
   disabled?: boolean,
-  onPress?: () => void,
+  onPress?: (_: boolean) => void,
   containerStyle?: any,
   testID?: string
 };
@@ -25,7 +25,7 @@ export const CheckBox = ({ disabled, checked, onPress = () => { }, containerStyl
       <PaperCheckbox.Android
         status={checked ? 'checked' : 'unchecked'}
         disabled={disabled}
-        onPress={onPress}
+        onPress={() => onPress(!checked)}
         uncheckedColor={mTheme.colors.primary}
         testID={testID}
       />

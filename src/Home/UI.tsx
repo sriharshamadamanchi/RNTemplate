@@ -84,7 +84,7 @@ const _CheckBox = () => {
     return (
         <View style={[styles.component]}>
             <Label semibold title="Check Button" />
-            <CheckBox checked={checked} onPress={() => { setChecked(!checked) }} />
+            <CheckBox checked={checked} onPress={setChecked} />
         </View>
     )
 }
@@ -107,12 +107,12 @@ const _RadioButton = () => {
 }
 
 const _Switch = () => {
-    const [checked, setChecked] = React.useState(false)
+    const [isSwitchOn, setIsSwitchOn] = React.useState(true);
 
     return (
         <View style={[styles.component]}>
             <Label semibold title="Switch" />
-            <Switch isChecked={checked} onChange={() => { setChecked(!checked) }} />
+            <Switch checked={isSwitchOn} onChange={setIsSwitchOn} />
         </View>
     )
 }
