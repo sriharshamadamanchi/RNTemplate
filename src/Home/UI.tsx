@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
-import { AvatarLabel, Label, LoadingIndicator, AvatarIcon, Banner, AnchorButton, Card, CurvedButton, CheckBox, RadioButton, Switch } from "../common/components";
+import { AvatarLabel, Label, LoadingIndicator, AvatarIcon, Banner, AnchorButton, Card, CurvedButton, CheckBox, RadioButton, Switch, ProgressBar } from "../common/components";
 import { moderateScale } from "react-native-size-matters";
 
 const styles = StyleSheet.create({
@@ -117,6 +117,15 @@ const _Switch = () => {
     )
 }
 
+const _ProgressBar = () => {
+
+    return (
+        <View style={[styles.component]}>
+            <Label semibold title="Progress Bar" />
+            <ProgressBar progress={0.5} />
+        </View>
+    )
+}
 
 const _Banner = () => {
     return (
@@ -150,6 +159,7 @@ export const UI = () => {
             <UI.CheckBox />
             <UI.RadioButton />
             <UI.Switch />
+            <UI.ProgressBar />
         </ScrollView>
     )
 
@@ -165,3 +175,4 @@ UI.CurvedButton = _CurvedButton
 UI.CheckBox = _CheckBox
 UI.RadioButton = _RadioButton
 UI.Switch = _Switch
+UI.ProgressBar = _ProgressBar
