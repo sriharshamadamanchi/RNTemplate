@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
-import { AvatarLabel, Label, LoadingIndicator, AvatarIcon, Banner, AnchorButton, Card, CurvedButton, CheckBox, RadioButton, Switch, ProgressBar } from "../common/components";
+import { AvatarLabel, Label, LoadingIndicator, AvatarIcon, Banner, AnchorButton, Card, CurvedButton, CheckBox, RadioButton, Switch, ProgressBar, SegmentedButton } from "../common/components";
 import { moderateScale } from "react-native-size-matters";
 
 const styles = StyleSheet.create({
@@ -12,13 +12,31 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         minHeight: moderateScale(50),
-        paddingHorizontal: moderateScale(30)
+        paddingHorizontal: moderateScale(20)
     },
     loader: {
         height: moderateScale(50),
         right: moderateScale(20)
     }
 })
+
+const _Banner = () => {
+    return (
+        <Banner
+            visible={true}
+            actions={[
+                {
+                    label: "Cancel",
+                }
+            ]}
+            renderBanner={() => {
+                return (
+                    <Label title="This is a custom banner from react native paper" />
+                )
+            }}
+        />
+    )
+}
 
 const _Loader = () => {
     return (
@@ -127,21 +145,37 @@ const _ProgressBar = () => {
     )
 }
 
-const _Banner = () => {
+const _SegmentedButton = () => {
+
+    const [selectedButton, setSelectedButton] = React.useState("2")
+
+
     return (
-        <Banner
-            visible={true}
-            actions={[
-                {
-                    label: "Cancel",
-                }
-            ]}
-            renderBanner={() => {
-                return (
-                    <Label title="This is a custom banner from react native paper" />
-                )
-            }}
-        />
+        <View style={[styles.component, { justifyContent: 'flex-start' }]}>
+            <Label semibold title="Segmented..." />
+            <SegmentedButton
+                selectedButton={selectedButton}
+                buttons={[
+                    {
+                        value: "1",
+                        label: "One",
+                        showSelectedCheck: true
+                    },
+                    {
+                        value: "2",
+                        label: "Two",
+                        showSelectedCheck: true
+                    },
+                    {
+                        value: "3",
+                        label: "Three",
+                        showSelectedCheck: true
+                    }
+                ]}
+                onChange={(val: string) => setSelectedButton(val)}
+                style={{ marginLeft: moderateScale(40) }}
+            />
+        </View>
     )
 }
 
@@ -160,6 +194,7 @@ export const UI = () => {
             <UI.RadioButton />
             <UI.Switch />
             <UI.ProgressBar />
+            <UI.SegmentedButton />
         </ScrollView>
     )
 
@@ -176,3 +211,4 @@ UI.CheckBox = _CheckBox
 UI.RadioButton = _RadioButton
 UI.Switch = _Switch
 UI.ProgressBar = _ProgressBar
+UI.SegmentedButton = _SegmentedButton
