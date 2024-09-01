@@ -7,7 +7,7 @@ import { SafeViewRenderer } from './SafeViewRenderer/SafeViewRenderer';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background.primary
+    backgroundColor: theme.colors.primary
   }
 });
 

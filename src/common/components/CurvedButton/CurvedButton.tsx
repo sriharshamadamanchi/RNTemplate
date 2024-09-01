@@ -10,7 +10,7 @@ const normalStyles = StyleSheet.create({
     height: moderateScale(30),
     width: moderateScale(90),
     borderRadius: moderateScale(100),
-    backgroundColor: theme.colors.background.base,
+    backgroundColor: theme.colors.primary,
     justifyContent: "center",
     alignItems: "center"
   },
@@ -19,7 +19,7 @@ const normalStyles = StyleSheet.create({
     alignItems: "center"
   },
   textStyle: {
-    color: theme.colors.font.default
+    color: theme.colors.onPrimary
   },
   iconStyle: {
     paddingRight: moderateScale(20)
@@ -32,8 +32,8 @@ const inverseStyles = StyleSheet.create({
     width: moderateScale(100),
     borderRadius: moderateScale(100),
     borderWidth: 1,
-    borderColor: theme.colors.border.base,
-    backgroundColor: theme.colors.background.default,
+    borderColor: theme.colors.primary,
+    backgroundColor: theme.colors.onPrimary,
     justifyContent: "center",
     alignItems: "center"
   },
@@ -42,7 +42,7 @@ const inverseStyles = StyleSheet.create({
     alignItems: "center"
   },
   textStyle: {
-    color: theme.colors.font.base
+    color: theme.colors.primary
   },
   iconStyle: {
     paddingRight: moderateScale(20)
@@ -110,23 +110,23 @@ export const CurvedButton = ({
 
   const styles = inverse ? inverseStyles : normalStyles;
   const newStyle = {
-    fontSize: theme.fontSizes.l,
-    fontFamily: theme.fonts.medium
+    fontSize: theme.font.fontSizes.l,
+    fontFamily: theme.font.fontFamily.medium
   };
 
   // Set font Style
-  light && (newStyle.fontFamily = theme.fonts.light);
-  regular && (newStyle.fontFamily = theme.fonts.regular);
-  medium && (newStyle.fontFamily = theme.fonts.medium);
-  bold && (newStyle.fontFamily = theme.fonts.bold);
+  light && (newStyle.fontFamily = theme.font.fontFamily.light);
+  regular && (newStyle.fontFamily = theme.font.fontFamily.regular);
+  medium && (newStyle.fontFamily = theme.font.fontFamily.medium);
+  bold && (newStyle.fontFamily = theme.font.fontFamily.bold);
 
   // Easily Set Font Sizes
-  xs && (newStyle.fontSize = theme.fontSizes.xs);
-  s && (newStyle.fontSize = theme.fontSizes.s);
-  m && (newStyle.fontSize = theme.fontSizes.m);
-  l && (newStyle.fontSize = theme.fontSizes.l);
-  xl && (newStyle.fontSize = theme.fontSizes.xl);
-  xxl && (newStyle.fontSize = theme.fontSizes.xxl);
+  xs && (newStyle.fontSize = theme.font.fontSizes.xs);
+  s && (newStyle.fontSize = theme.font.fontSizes.s);
+  m && (newStyle.fontSize = theme.font.fontSizes.m);
+  l && (newStyle.fontSize = theme.font.fontSizes.l);
+  xl && (newStyle.fontSize = theme.font.fontSizes.xl);
+  xxl && (newStyle.fontSize = theme.font.fontSizes.xxl);
 
   const disableButtonStyle = disableButton === true ? { opacity: 0.35 } : {};
 

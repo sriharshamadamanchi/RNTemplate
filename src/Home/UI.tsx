@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
-import { AvatarLabel, Label, LoadingIndicator, AvatarIcon, Banner } from "../common/components";
+import { AvatarLabel, Label, LoadingIndicator, AvatarIcon, Banner, AnchorButton, Card, CurvedButton, CheckButton, RadioButton, Switch } from "../common/components";
 import { moderateScale } from "react-native-size-matters";
 
 const styles = StyleSheet.create({
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         minHeight: moderateScale(50),
-        paddingHorizontal: moderateScale(50)
+        paddingHorizontal: moderateScale(30)
     },
     loader: {
         height: moderateScale(50),
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     }
 })
 
-const Loader = () => {
+const _Loader = () => {
     return (
         <View style={styles.component}>
             <Label semibold title="Loader" />
@@ -31,7 +31,7 @@ const Loader = () => {
     )
 }
 
-const AIcon = () => {
+const _AvatarIcon = () => {
     return (
         <View style={[styles.component]}>
             <Label semibold title="Avatar Icon" />
@@ -40,7 +40,7 @@ const AIcon = () => {
     )
 }
 
-const ALabel = () => {
+const _AvatarText = () => {
     return (
         <View style={[styles.component]}>
             <Label semibold title="Avatar Text" />
@@ -49,7 +49,70 @@ const ALabel = () => {
     )
 }
 
-const ABanner = () => {
+const _AnchorButton = () => {
+    return (
+        <View style={[styles.component]}>
+            <Label semibold title="Anchor Button" />
+            <AnchorButton title="Anchor Button" />
+        </View>
+    )
+}
+
+const _Card = () => {
+    return (
+        <View style={[styles.component]}>
+            <Label semibold title="Card" />
+            <Card>
+                <Label title="This is a card" />
+            </Card>
+        </View>
+    )
+}
+
+const _CurvedButton = () => {
+    return (
+        <View style={[styles.component]}>
+            <Label semibold title="Curved Button" />
+            <CurvedButton title="Curved Button" buttonStyle={{ width: moderateScale(160), height: moderateScale(45) }} />
+        </View>
+    )
+}
+
+const _CheckButton = () => {
+    const [checked, setChecked] = React.useState(false)
+
+    return (
+        <View style={[styles.component]}>
+            <Label semibold title="Check Button" />
+            <CheckButton checked={checked} onPress={() => { setChecked(!checked) }} />
+        </View>
+    )
+}
+
+const _RadioButton = () => {
+    const [checked, setChecked] = React.useState(false)
+
+    return (
+        <View style={[styles.component]}>
+            <Label semibold title="Radio Button" />
+            <RadioButton label="" status={checked} onChange={() => { setChecked(!checked) }} />
+        </View>
+    )
+}
+
+const _Switch = () => {
+    const [checked, setChecked] = React.useState(false)
+
+    return (
+        <View style={[styles.component]}>
+            <Label semibold title="Switch" />
+            <Switch isChecked={checked} onChange={() => { setChecked(!checked) }} />
+        </View>
+    )
+}
+
+
+const _Banner = () => {
     return (
         <Banner
             visible={true}
@@ -75,12 +138,24 @@ export const UI = () => {
             <UI.AvatarIcon />
             <UI.AvatarText />
             <UI.Banner />
+            <UI.AnchorButton />
+            <UI.Card />
+            <UI.CurvedButton />
+            <UI.CheckButton />
+            <UI.RadioButton />
+            <UI.Switch />
         </ScrollView>
     )
 
 }
 
-UI.Loader = Loader
-UI.AvatarIcon = AIcon
-UI.AvatarText = ALabel
-UI.Banner = ABanner
+UI.Loader = _Loader
+UI.AvatarIcon = _AvatarIcon
+UI.AvatarText = _AvatarText
+UI.Banner = _Banner
+UI.AnchorButton = _AnchorButton
+UI.Card = _Card
+UI.CurvedButton = _CurvedButton
+UI.CheckButton = _CheckButton
+UI.RadioButton = _RadioButton
+UI.Switch = _Switch

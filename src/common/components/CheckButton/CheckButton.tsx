@@ -7,14 +7,14 @@ import { moderateScale } from 'react-native-size-matters';
 const styles = StyleSheet.create({
   containerStyle: {
     width: moderateScale(40),
-    height: moderateScale(40),
+    height: moderateScale(40)
   }
 });
 
 interface checkButtonType {
   checked?: boolean,
   events?: string,
-  onPress: () => void,
+  onPress?: () => void,
   height?: number,
   width?: number,
   label?: string,
@@ -26,7 +26,7 @@ interface checkButtonType {
   accessibilityLabel?: string
 };
 
-export const CheckButton = ({ label = "", labelStyle = {}, checked, events, onPress, height, width, style, componentName, containerStyle, testID, accessibilityLabel }: checkButtonType) => {
+export const CheckButton = ({ label = "", labelStyle = {}, checked, events, onPress = () => { }, height, width, style, componentName, containerStyle, testID, accessibilityLabel }: checkButtonType) => {
   return (
     <Checkbox
       noFeedback={true}

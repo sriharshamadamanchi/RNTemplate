@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Banner as PaperBaner } from 'react-native-paper';
+import { Button, Banner as PaperBaner, useTheme } from 'react-native-paper';
 import { $RemoveChildren } from 'react-native-paper/lib/typescript/types';
 
 type BannerProps = {
@@ -11,11 +11,13 @@ type BannerProps = {
     style?: any
 }
 
-export const Banner = ({ visible, actions, contentStyle, renderBanner, ...rest }: BannerProps) => {
+export const Banner = ({ visible, actions, contentStyle = {}, renderBanner, ...rest }: BannerProps) => {
+
+    const mTheme = useTheme()
 
     return (
         <PaperBaner
-            contentStyle={contentStyle}
+            contentStyle={[contentStyle, { backgroundColor: mTheme.colors.onPrimary }]}
             visible={visible}
             actions={actions}
             {...rest}>

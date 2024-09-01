@@ -7,7 +7,7 @@ import { Ripple } from '../Ripple/Ripple';
 const styles = StyleSheet.create({
   cardStyle: {
     // flex: 1,
-    backgroundColor: theme.colors.background.default,
+    backgroundColor: theme.colors.onPrimary,
     borderRadius: moderateScale(10),
     padding: moderateScale(10),
     marginVertical: moderateScale(8),
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.18,
     shadowRadius: 1.0,
-    elevation: 1,
+    elevation: 1
   }
 });
 

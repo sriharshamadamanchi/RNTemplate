@@ -8,12 +8,12 @@ const styles = StyleSheet.create({
     height: 1,
     borderRadius: 10,
     opacity: 0.3,
-    backgroundColor: theme.colors.divider
+    backgroundColor: theme.colors.outline
   }
 });
 
 interface dividerType {
-    style?: any
+  style?: any
 };
 
 export const Divider = ({ style }: dividerType) => {

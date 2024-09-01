@@ -3,13 +3,13 @@ import { Switch as PaperSwitch } from 'react-native-paper';
 import { theme } from '../../theme';
 
 interface switchType {
-    style?: any,
-    onChange: (val: boolean) => void,
-    isChecked: boolean,
-    componentName?: string,
-    testID?: string,
-    accessibilityLabel?: string,
-    disabled?: boolean
+  style?: any,
+  onChange: (val: boolean) => void,
+  isChecked: boolean,
+  componentName?: string,
+  testID?: string,
+  accessibilityLabel?: string,
+  disabled?: boolean
 };
 export const Switch = ({ style, onChange, isChecked, componentName, testID, accessibilityLabel, disabled = false }: switchType): any => {
 
@@ -19,7 +19,7 @@ export const Switch = ({ style, onChange, isChecked, componentName, testID, acce
       testID={testID}
       accessibilityLabel={accessibilityLabel}
       value={isChecked}
-      color={theme.colors.background.base}
+      color={theme.colors.primary}
       onValueChange={() => onChange(!isChecked)
       } />
   );

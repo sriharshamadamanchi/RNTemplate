@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { theme } from './src/common/theme';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { navigationRef } from './src/common/navigation/navigationService';
 import { Provider } from 'react-redux';
@@ -11,6 +10,9 @@ import { ErrorBoundary } from './src/common/ErrorBoundary/ErrorBoundary';
 import { NavigationContainer } from '@react-navigation/native';
 import { Home } from './src';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import colors from './src/common/theme/colors.json';
+import { theme } from './src/common/theme';
+
 
 const getActiveRouteName = (state: any): any => {
   const route = state?.routes[state?.index];
@@ -23,17 +25,8 @@ const getActiveRouteName = (state: any): any => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: theme.colors.background.default }
+  container: { flex: 1, backgroundColor: colors.light.background }
 });
-
-const themeForPaper = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: theme.colors.background.base,
-    accent: theme.colors.background.base,
-  },
-};
 
 export const App = () => {
   const routeNameRef = React.useRef();
@@ -48,7 +41,7 @@ export const App = () => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <RootSiblingParent>
-          <PaperProvider theme={themeForPaper}>
+          <PaperProvider theme={theme}>
             <ErrorBoundary>
               <GestureHandlerRootView style={styles.container}>
                 <View style={styles.container}>

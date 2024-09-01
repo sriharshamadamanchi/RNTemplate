@@ -8,16 +8,16 @@ import { moderateScale } from 'react-native-size-matters';
 import { Ripple } from '../Ripple/Ripple';
 
 interface radioButtonType {
-    status: boolean,
-    label: string,
-    onChange: () => void,
-    componentName?: string,
-    disabled?: boolean,
-    containerStyle?: any,
-    textStyle?: any,
-    testID?: string,
-    accessibilityLabel?: string,
-    value?: string
+  status: boolean,
+  label: string,
+  onChange: () => void,
+  componentName?: string,
+  disabled?: boolean,
+  containerStyle?: any,
+  textStyle?: any,
+  testID?: string,
+  accessibilityLabel?: string,
+  value?: string
 };
 
 const styles = StyleSheet.create({
@@ -26,13 +26,13 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   textStyle: {
-    color: theme.colors.font.primary,
+    color: theme.colors.primary,
     paddingLeft: moderateScale(5),
-    fontSize: theme.fontSizes.l,
-    fontFamily: theme.fonts.medium
+    fontSize: theme.font.fontSizes.l,
+    fontFamily: theme.font.fontFamily.medium
   },
   disabledTextStyle: {
-    color: theme.colors.font.secondary
+    color: theme.colors.secondary
   }
 });
 export const RadioButton = ({ status, label, onChange, componentName, disabled, testID, accessibilityLabel, containerStyle, textStyle }: radioButtonType): any => {
@@ -49,7 +49,7 @@ export const RadioButton = ({ status, label, onChange, componentName, disabled, 
         noFeedback={true}
         containerStyle={{
           width: moderateScale(20),
-          height: moderateScale(20),
+          height: moderateScale(20)
         }}
         label={""}
         onChange={() => { }}
