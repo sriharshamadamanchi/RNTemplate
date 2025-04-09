@@ -4922,6 +4922,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/i18n-js@npm:<4":
+  version: 3.8.9
+  resolution: "@types/i18n-js@npm:3.8.9"
+  checksum: 1f22fcd110b67b98145bcf35f384756b9b85dedccf6dd98467987a70b71f767ae989e9624f03236990d998308caa4d22f9f34a75a6cc8676e4bbed304e49608f
+  languageName: node
+  linkType: hard
+
 "@types/istanbul-lib-coverage@npm:*, @types/istanbul-lib-coverage@npm:^2.0.0, @types/istanbul-lib-coverage@npm:^2.0.1":
   version: 2.0.6
   resolution: "@types/istanbul-lib-coverage@npm:2.0.6"
@@ -4993,6 +5000,15 @@ __metadata:
   version: 15.7.11
   resolution: "@types/prop-types@npm:15.7.11"
   checksum: 7519ff11d06fbf6b275029fe03fff9ec377b4cb6e864cac34d87d7146c7f5a7560fd164bdc1d2dbe00b60c43713631251af1fd3d34d46c69cd354602bc0c7c54
+  languageName: node
+  linkType: hard
+
+"@types/react-native-i18n@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@types/react-native-i18n@npm:2.0.3"
+  dependencies:
+    "@types/i18n-js": <4
+  checksum: ec99515dcf7fcf4a6fdacb18e1089ba1a72712ab38e1594b3b0fd9c4440fdb3ecd76b2b17817f4af33c82ed4ac2d1e8360e6f7f17fe998b2b2afa00a3601173a
   languageName: node
   linkType: hard
 
@@ -8891,6 +8907,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"i18n-js@npm:3.0.11":
+  version: 3.0.11
+  resolution: "i18n-js@npm:3.0.11"
+  checksum: 2fe94bf00f507068a3e9ac632a93d10d9aa7d254bbec33108311f0ee992a9d262fc68b4e48fd14d5fcffc539f6e58d78bfff24252266ebfd493df09618b440f4
+  languageName: node
+  linkType: hard
+
 "iconv-lite@npm:^0.6.2":
   version: 0.6.3
   resolution: "iconv-lite@npm:0.6.3"
@@ -10450,6 +10473,20 @@ __metadata:
   version: 4.0.8
   resolution: "lodash.debounce@npm:4.0.8"
   checksum: a3f527d22c548f43ae31c861ada88b2637eb48ac6aa3eb56e82d44917971b8aa96fbb37aa60efea674dc4ee8c42074f90f7b1f772e9db375435f6c83a19b3bc6
+  languageName: node
+  linkType: hard
+
+"lodash.isequal@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.isequal@npm:4.5.0"
+  checksum: da27515dc5230eb1140ba65ff8de3613649620e8656b19a6270afe4866b7bd461d9ba2ac8a48dcc57f7adac4ee80e1de9f965d89d4d81a0ad52bb3eec2609644
+  languageName: node
+  linkType: hard
+
+"lodash.isobject@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "lodash.isobject@npm:3.0.2"
+  checksum: 6c1667cbc4494d0a13a3617a4b23278d6d02dac520311f2bbb43f16f2cf71d2e6eb9dec8057315b77459df4890c756a256a087d3f4baa44a79ab5d6c968b060e
   languageName: node
   linkType: hard
 
@@ -12318,6 +12355,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-i18n@npm:^2.0.15":
+  version: 2.0.15
+  resolution: "react-native-i18n@npm:2.0.15"
+  dependencies:
+    i18n-js: 3.0.11
+  checksum: 8ea3500556c6a55a8e3a0fc838217a9d27bf541e2d6d9cefe5293889859af8fb494d1b8b25de7e80f6086023128814af9b22b6636aa2733443ae1c7118338420
+  languageName: node
+  linkType: hard
+
 "react-native-is-edge-to-edge@npm:1.1.6":
   version: 1.1.6
   resolution: "react-native-is-edge-to-edge@npm:1.1.6"
@@ -12397,6 +12443,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-picker-select@npm:^9.3.1":
+  version: 9.3.1
+  resolution: "react-native-picker-select@npm:9.3.1"
+  dependencies:
+    lodash.isequal: ^4.5.0
+    lodash.isobject: ^3.0.2
+  peerDependencies:
+    "@react-native-picker/picker": ^2.4.0
+  checksum: ba03c79bff736f225f6cf06a971a5058739ef27c26d2f66edf31e80250fc40be29085d4b15a35339c31b4d4830d362594f8d5933a25a0f2f1f9d702189e2d611
+  languageName: node
+  linkType: hard
+
 "react-native-push-notification@npm:^8.1.1":
   version: 8.1.1
   resolution: "react-native-push-notification@npm:8.1.1"
@@ -12468,6 +12526,13 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 7c39983082c244437df7840504205ea27c235bbd4bd11bcfdf6d73bba4cc6dbbba010d051d51de54c340df6d4e54d8a0833ef9ec151e7f075eb1f69833b0f8b6
+  languageName: node
+  linkType: hard
+
+"react-native-shapes@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "react-native-shapes@npm:0.1.0"
+  checksum: f8f40809150b3e3d93d651a41bfb2246b4936dc291060e338befb6adf3a536ed25bcd94fab8fc58cef0838064f7104b3c2b1969f60abd945167db0737b92e815
   languageName: node
   linkType: hard
 
@@ -12560,6 +12625,7 @@ __metadata:
     "@reduxjs/toolkit": ^2.6.1
     "@types/jest": ^29.5.13
     "@types/react": ^19.0.11
+    "@types/react-native-i18n": ^2.0.3
     "@types/react-native-material-ripple": ^0.9.6
     "@types/react-test-renderer": ^19.0.0
     "@typescript-eslint/eslint-plugin": ^8.26.1
@@ -12587,18 +12653,21 @@ __metadata:
     react-native: ^0.78.0
     react-native-config: ^1.5.5
     react-native-gesture-handler: ^2.24.0
+    react-native-i18n: ^2.0.15
     react-native-keychain: ^9.2.3
     react-native-linear-gradient: ^2.8.3
     react-native-material-ripple: ^0.9.1
     react-native-pager-view: ^6.7.0
     react-native-paper: ^5.13.1
     react-native-permissions: ^5.2.6
+    react-native-picker-select: ^9.3.1
     react-native-push-notification: ^8.1.1
     react-native-reanimated: ^3.17.1
     react-native-restart: ^0.0.27
     react-native-root-siblings: ^5.0.1
     react-native-safe-area-context: ^5.3.0
     react-native-screens: ^4.9.2
+    react-native-shapes: ^0.1.0
     react-native-size-matters: ^0.4.2
     react-native-splash-screen: ^3.3.0
     react-native-svg: ^15.11.2

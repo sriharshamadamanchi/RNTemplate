@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 });
 
 export const App = () => {
-  const routeNameRef = React.useRef();
+  const routeNameRef = React.useRef(null);
 
   React.useEffect(() => {
     const state = navigationRef?.current?.getRootState();

@@ -1,8 +1,13 @@
-import produce from "immer";
+import { produce } from "immer";
 
-export const getActionType = (action: any): string => {
-  return action().type;
-};
+export function getActionType<T extends { type: string }>(action: () => T): T['type'];
+export function getActionType<T extends { type: string }, P>(
+  action: (payload: P) => T
+): T['type'];
+
+export function getActionType(action: (...args: any[]) => { type: string }): string {
+  return action({} as any).type;
+}
 
 export const resetState = (initState: any): any => (state: any) => {
   for (const key in initState) {

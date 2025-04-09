@@ -80,7 +80,7 @@ export const Label = ({
   };
 
   // Assign Font Colors based on type.
-  white && (newStyle.color = mTheme.colors.tertiary);
+  white && (newStyle.color = mTheme.colors.background);
   secondary && (newStyle.color = mTheme.colors.secondary);
   primary && (newStyle.color = mTheme.colors.primary);
 

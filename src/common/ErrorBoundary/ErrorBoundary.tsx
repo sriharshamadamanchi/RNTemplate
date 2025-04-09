@@ -8,7 +8,7 @@ import RNRestart from 'react-native-restart';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.background,
     paddingTop: moderateScale(30),
     alignItems: "center",
     justifyContent: 'space-evenly'

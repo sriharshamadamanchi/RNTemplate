@@ -1,4 +1,3 @@
-// @flow Copyright © 2019 Rently Softwares, All Rights Reserved
 process.env.NODE_OPTIONS = '--max-old-space-size=8192'
 
 const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');

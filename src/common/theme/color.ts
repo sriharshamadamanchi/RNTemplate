@@ -1,4 +1,3 @@
-// @flow Copyright © 2019 Rently Softwares, All Rights Reserved
 export const colors = {
   transparent: 'transparent',
   shadow: '#000',

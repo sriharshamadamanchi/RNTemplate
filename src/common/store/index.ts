@@ -1,4 +1,3 @@
-// @flow Copyright © 2019 Rently Softwares, All Rights Reserved
 import { getActionType } from './typeSafe';
 import {
   failedLoadingAction,
@@ -19,7 +18,7 @@ import { Tuple, configureStore } from '@reduxjs/toolkit';
 
 const persistConfig = {
   key: 'root',
-  whitelist: [], // Only these reducers will be persisted.
+  whitelist: ["login"], // Only these reducers will be persisted.
   storage: AsyncStorage,
   stateReconciler: autoMergeLevel2
 };
@@ -37,7 +36,7 @@ const internetCheckerMiddleware = (store: any) => (next: any) => (action: any) =
     getActionType(failedLoadingAction), // We should allow hide Loader
     getActionType(resetAllLoadersAction), // We should allow reset all Loader
   ];
-  if (whiteListActions.includes(action.type) || !action.type.startsWith("src/")) {
+  if (true || whiteListActions.includes(action.type) || !action.type.startsWith("src/")) {
     return next(action);
   }
 };
