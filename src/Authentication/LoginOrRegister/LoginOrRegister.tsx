@@ -1,3 +1,4 @@
+import React from "react"
 import { StyleSheet, View } from "react-native"
 import { CurvedButton, Label } from "../../common/components"
 import { moderateScale } from "react-native-size-matters"

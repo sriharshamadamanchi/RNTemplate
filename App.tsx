@@ -46,10 +46,6 @@ export const App = () => {
                 <View style = {styles.container}>
                   <NavigationContainer
                     ref = {navigationRef}
-                    onReady = {() => {
-                      const state = navigationRef?.current?.getRootState();
-                      const currentRouteName = getActiveRouteName(state);
-                    }}
                     onStateChange = {(state: any) => {
                       const previousRouteName = routeNameRef.current;
                       const currentRouteName = getActiveRouteName(state);

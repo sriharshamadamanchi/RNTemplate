@@ -5,7 +5,7 @@ import { Formik } from "formik";
 import { strings } from "../../common/i18n";
 import { theme } from "../../common/theme";
 import { moderateScale } from "react-native-size-matters";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { registrationValidationSchema } from "./validations";
 import { storeType } from "../../common/store/types";
 import { COUNTRY_CODES, DEFAULT_COUNTRY_CODE, TEXTFIELD_MAX_LENGTH } from "../../common/constants";
@@ -40,12 +40,6 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(30),
     marginBottom: moderateScale(20)
   },
-  poweredByViewStyle: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
-    // paddingBottom:moderateScale(20)
-  },
   validationLabelStyle: {
     color: theme.colors.error,
     fontSize: theme.font.fontSizes.m
@@ -79,7 +73,6 @@ const styles = StyleSheet.create({
 });
 
 export const Register = (): React.ReactNode => {
-  const dispatch = useDispatch();
   const loading = useSelector((state: storeType): boolean => state.loader.loading);
   const confirmpassword: any = React.useRef("");
 
@@ -139,7 +132,7 @@ export const Register = (): React.ReactNode => {
                     onPhoneNumberChange = {(newPhoneNumber: string) => {
                       setFieldValue("phone", newPhoneNumber, true);
                     }}
-                    onCountryCodeChange = {((value: string, index: number) => {
+                    onCountryCodeChange = {((value: string) => {
                       setFieldValue("countryCode", value, true);
                       if (values.phone) {
 

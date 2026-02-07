@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { UI } from "./UI";
-// @ts-ignore
 import colors from "../common/theme/colors.json";
 
 const styles = StyleSheet.create({

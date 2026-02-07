@@ -1,3 +1,4 @@
+import React from "react"
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from "react-native"
 import { AnchorButton, CurvedButton, Label, LoadingIndicator } from "../../common/components"
 import { moderateScale } from "react-native-size-matters"
@@ -84,7 +85,6 @@ const Login = () => {
 
           <Formik
             initialValues = {{ email: "", password: "" }}
-
             onSubmit = {() => { }}
             validationSchema = {
               Yup.object().shape({
@@ -95,7 +95,7 @@ const Login = () => {
             validateOnMount
             validateOnBlur
             validateOnChange
-            component = {({ handleChange, handleBlur, setFieldValue, touched, values, errors, isValid }: any) => {
+            component = {({ handleChange, handleBlur, touched, values, errors, isValid }: any) => {
               return (
                 <>
                   <LoadingIndicator color = {theme.colors.primary} loading = {loading} />
