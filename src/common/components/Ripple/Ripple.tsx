@@ -17,7 +17,7 @@ export const Ripple = ({ children, testID, accessibilityLabel, ...rest }: ripple
   return (
     <MaterialRipple
       rippleOpacity={0.09}
-      rippleDuration={600}
+      rippleDuration={300}
       rippleContainerBorderRadius={50}
       testID={testID}
       accessibilityLabel={accessibilityLabel}
