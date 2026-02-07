@@ -12,14 +12,14 @@ import createSagaMiddleware from "redux-saga";
 import { reducers } from "./combineReducers";
 import { sagas } from "./combineSagas";
 import { persistReducer, persistStore } from "redux-persist";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 import { Tuple, configureStore } from "@reduxjs/toolkit";
+import { reduxStorage } from "./storage";
 
 const persistConfig = {
   key: "root",
   whitelist: ["login"], // Only these reducers will be persisted.
-  storage: AsyncStorage,
+  storage: reduxStorage,
   stateReconciler: autoMergeLevel2
 };
 
