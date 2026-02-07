@@ -10,7 +10,7 @@ import { ErrorBoundary } from "./src/common/ErrorBoundary/ErrorBoundary";
 import { NavigationContainer } from "@react-navigation/native";
 import { Home } from "./src";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import colors from "./src/common/theme/colors.json";
+import colors from "./src/common/theme/material-theme.json";
 import { theme } from "./src/common/theme";
 
 const getActiveRouteName = (state: any): any => {
@@ -24,7 +24,7 @@ const getActiveRouteName = (state: any): any => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.light.background }
+  container: { flex: 1, backgroundColor: colors.schemes.light.background }
 });
 
 export const App = () => {

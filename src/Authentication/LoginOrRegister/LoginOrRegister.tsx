@@ -1,14 +1,15 @@
 import React from "react"
 import { StyleSheet, View } from "react-native"
-import { CurvedButton, Label } from "../../common/components"
+import { CurvedButton, Label, Wave } from "../../common/components"
 import { moderateScale } from "react-native-size-matters"
 import { useNavigation } from "@react-navigation/native"
 import { LoginOrRegisterScreenNavigationProp } from "../../common/navigation/types"
-import WaveSVG from "../../common/theme/icons/wave.svg"
+import { theme } from "../../common/theme"
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: theme.colors.background
   },
   labelStyle: {
     marginVertical: moderateScale(10)
@@ -31,8 +32,15 @@ const LoginOrRegister = () => {
   return (
     <View style = {styles.container}>
 
-      <WaveSVG />
-
+      <Wave
+        count = {2}
+        waveHeight = {100}
+        height = {300}
+        colors = {["#0C7779", "#005461"]}
+        style = {{
+          transform: [{ rotate: "180deg" }]
+        }}
+      />
       <View style = {styles.subContainer}>
         <Label xxxl title = "Welcome !" style = {styles.labelStyle} />
         <CurvedButton
@@ -51,6 +59,12 @@ const LoginOrRegister = () => {
           }}
         />
       </View>
+      <Wave
+        count = {2}
+        waveHeight = {100}
+        height = {300}
+        colors = {["#005461", "#0C7779"]}
+      />
     </View>
   )
 }

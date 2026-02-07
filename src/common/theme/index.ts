@@ -1,6 +1,6 @@
 import { moderateScale } from "react-native-size-matters";
 import { DefaultTheme } from "react-native-paper";
-import mColors from "./colors.json";
+import mColors from "./material-theme.json";
 
 const font = {
   fontFamily: {
@@ -30,7 +30,7 @@ export const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    ...mColors.light
+    ...mColors.schemes.light
   },
   font
 };

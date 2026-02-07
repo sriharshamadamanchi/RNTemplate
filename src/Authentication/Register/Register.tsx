@@ -1,6 +1,6 @@
 import * as React from "react";
-import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
-import { CheckBox, CurvedButton, FTextInputWithLabel, Label, LoadingIndicator, PasswordField, PhoneNumber } from "../../common/components";
+import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, TextInput, View } from "react-native";
+import { CurvedButton, FTextInputWithLabel, Label, LoadingIndicator, PasswordField, PhoneNumber } from "../../common/components";
 import { Formik } from "formik";
 import { strings } from "../../common/i18n";
 import { theme } from "../../common/theme";
@@ -51,24 +51,6 @@ const styles = StyleSheet.create({
   refStyle: {
     width: moderateScale(1),
     height: moderateScale(1)
-  },
-  disclaimerTextStyle: {
-    fontFamily: theme.font.fontFamily.medium,
-    color: theme.colors.primary,
-    fontSize: theme.font.fontSizes.s
-  },
-  underlineStyle: {
-    textDecorationLine: "underline",
-    fontFamily: theme.font.fontFamily.medium,
-    color: theme.colors.primary,
-    fontSize: theme.font.fontSizes.s
-  },
-  smsConsentCheckBoxContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    paddingVertical: moderateScale(20),
-    paddingHorizontal: moderateScale(25)
   }
 });
 
@@ -204,27 +186,6 @@ export const Register = (): React.ReactNode => {
                     myRef = {confirmpassword}
                   />
                   <Label m title = {strings("Register.passwordRequirements")} style = {styles.infostyle} />
-                  <View style = {styles.smsConsentCheckBoxContainer}>
-
-                    <CheckBox
-                      onPress = {() => {
-                        setFieldValue("smsConsent", !values.smsConsent);
-                      }}
-                      checked = {values.smsConsent}
-                    />
-
-                    <Text>
-                      <Text style = {styles.disclaimerTextStyle}>{ strings("Register.smsConsent") }</Text>
-                      <Text
-                        style = {styles.underlineStyle}
-                        onPress = {() => {
-
-                        }}
-                      >{ strings("Register.termsAndConditions") }</Text>
-                      <Text style = {styles.disclaimerTextStyle}>.</Text>
-                    </Text>
-
-                  </View>
                   <CurvedButton
                     testID = "register"
                     accessibilityLabel = "register"

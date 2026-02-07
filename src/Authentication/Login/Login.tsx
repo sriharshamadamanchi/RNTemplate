@@ -1,10 +1,9 @@
 import React from "react"
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from "react-native"
-import { AnchorButton, CurvedButton, Label, LoadingIndicator } from "../../common/components"
+import { AnchorButton, CurvedButton, Label, LoadingIndicator, Wave } from "../../common/components"
 import { moderateScale } from "react-native-size-matters"
 import { useNavigation } from "@react-navigation/native"
 import { LoginOrRegisterScreenNavigationProp } from "../../common/navigation/types"
-import WaveSVG from "../../common/theme/icons/wave.svg"
 import { FTextInputWithLabel } from "../../common/components/FTextInputWithLabel/FTextInputWithLabel"
 import { theme } from "../../common/theme"
 import { PasswordField } from "../../common/components/PasswordField/PasswordField"
@@ -17,7 +16,8 @@ import { loginAction } from "../redux/actions"
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1
+    flexGrow: 1,
+    backgroundColor: theme.colors.background
   },
   labelStyle: {
     marginVertical: moderateScale(5)
@@ -79,7 +79,15 @@ const Login = () => {
       behavior = "padding"
       style = {styles.container}>
       <ScrollView style = {styles.container} keyboardShouldPersistTaps = "handled">
-        <WaveSVG />
+        <Wave
+          count = {2}
+          waveHeight = {100}
+          height = {300}
+          colors = {["#0C7779", "#005461"]}
+          style = {{
+            transform: [{ rotate: "180deg" }]
+          }}
+        />
         <View style = {styles.subContainer}>
           <Label center xxxl title = "Welcome Back !" style = {styles.labelStyle} />
 

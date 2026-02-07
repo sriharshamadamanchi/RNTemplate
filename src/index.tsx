@@ -99,7 +99,7 @@ export const Home = () => {
             <Stack.Screen
               options = {(): any => {
                 return {
-                  name: "Register"
+                  title: "Register"
                 };
               }}
               name = "Register"
@@ -108,7 +108,7 @@ export const Home = () => {
             <Stack.Screen
               options = {(): any => {
                 return {
-                  headerShown: false
+                  title: "Forgot Password"
                 };
               }}
               name = "ForgotPassword"
