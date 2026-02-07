@@ -1,69 +1,69 @@
-import * as React from 'react';
-import { KeyboardTypeOptions, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { moderateScale } from 'react-native-size-matters';
-import { ValidationErrorMessage } from '../ValidationErrorMessage/ValidationErrorMessage';
-import { theme } from '../../theme';
-import ShowPassword from '../../theme/icons/show-password.svg';
-import HidePassword from '../../theme/icons/hide-password.svg';
-import { ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE } from '../../constants';
+import * as React from "react";
+import { KeyboardTypeOptions, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { moderateScale } from "react-native-size-matters";
+import { ValidationErrorMessage } from "../ValidationErrorMessage/ValidationErrorMessage";
+import { theme } from "../../theme";
+import ShowPassword from "../../theme/icons/show-password.svg";
+import HidePassword from "../../theme/icons/hide-password.svg";
+import { ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE } from "../../constants";
 import Utility from "../../Utility";
 
 const styles = StyleSheet.create({
-  viewStyle:{
+  viewStyle: {
     // flex:1
   },
-  labelStyle:{
-    marginBottom:moderateScale(10),
+  labelStyle: {
+    marginBottom: moderateScale(10),
     fontSize: theme.font.fontSizes.l,
     color: theme.colors.secondary,
     fontFamily: theme.font.fontFamily.medium
   },
   textInputStyle: {
     flex: 1,
-    height:moderateScale(50),
-    fontSize:theme.font.fontSizes.l,
+    height: moderateScale(50),
+    fontSize: theme.font.fontSizes.l,
     fontFamily: theme.font.fontFamily.medium,
-    color: theme.colors.primary,
+    color: theme.colors.primary
   },
-  eyeButtonStyle:{
-    padding:moderateScale(6)
+  eyeButtonStyle: {
+    padding: moderateScale(6)
   },
   showOrHide: {
     backgroundColor: theme.colors.background,
     borderRadius: moderateScale(10),
-    height:moderateScale(50),
+    height: moderateScale(50),
     paddingHorizontal: moderateScale(10),
     fontSize: theme.font.fontSizes.l,
     fontFamily: theme.font.fontFamily.medium,
-    borderWidth:1,
-    borderColor:theme.colors.primary,
-    flexDirection:'row',
-    alignItems:'center'
+    borderWidth: 1,
+    borderColor: theme.colors.primary,
+    flexDirection: "row",
+    alignItems: "center"
   }
 });
 
 type passwordFieldType = {
-  viewStyle?: any,
-  textInputStyle?: any,
-  labelStyle?: any,
-  validationViewStyle?: any,
-  validationLabelStyle?: any,
-  label?: string,
-  value?: string,
-  error?: string,
-  validate?: ()=>string,
-  placeholder?: string,
-  onChangeText?: ()=>void,
-  onBlur?: ()=>void,
-  placeholderTextColor?: string,
-  keyboardType?: KeyboardTypeOptions | undefined,
-  autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined,
-  maxLength?: number,
-  editable?: boolean,
-  icon?: any,
-  testID?: string,
-  accessibilityLabel?: string,
-  myRef?: any
+  readonly viewStyle?: any,
+  readonly textInputStyle?: any,
+  readonly labelStyle?: any,
+  readonly validationViewStyle?: any,
+  readonly validationLabelStyle?: any,
+  readonly label?: string,
+  readonly value?: string,
+  readonly error?: string,
+  readonly validate?: ()=>string,
+  readonly placeholder?: string,
+  readonly onChangeText?: ()=>void,
+  readonly onBlur?: ()=>void,
+  readonly placeholderTextColor?: string,
+  readonly keyboardType?: KeyboardTypeOptions | undefined,
+  readonly autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined,
+  readonly maxLength?: number,
+  readonly editable?: boolean,
+  readonly icon?: any,
+  readonly testID?: string,
+  readonly accessibilityLabel?: string,
+  readonly myRef?: any
 };
 
 export const PasswordField: any = React.memo<passwordFieldType>((props: passwordFieldType): React.ReactNode => {
@@ -75,7 +75,7 @@ export const PasswordField: any = React.memo<passwordFieldType>((props: password
       {
         props.label
           ?
-          <Text maxFontSizeMultiplier = {ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE}  style = {{ ...styles.labelStyle, ...props.labelStyle }}>
+          <Text maxFontSizeMultiplier = {ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE} style = {{ ...styles.labelStyle, ...props.labelStyle }}>
             {props.label}
           </Text>
           :
@@ -101,9 +101,9 @@ export const PasswordField: any = React.memo<passwordFieldType>((props: password
           ref = {props.myRef}
 
         />
-        <TouchableOpacity style = {styles.eyeButtonStyle} onPress = {() =>  setSecureTextEntry(!secureTextEntry)}>
+        <TouchableOpacity style = {styles.eyeButtonStyle} onPress = {() => setSecureTextEntry(!secureTextEntry)}>
           {
-            secureTextEntry? <ShowPassword width = {moderateScale(24)} height = {moderateScale(14)}/> : <HidePassword width = {moderateScale(24)} height = {moderateScale(18)}/>
+            secureTextEntry ? <ShowPassword width = {moderateScale(24)} height = {moderateScale(14)} /> : <HidePassword width = {moderateScale(24)} height = {moderateScale(18)} />
           }
         </TouchableOpacity>
       </View>

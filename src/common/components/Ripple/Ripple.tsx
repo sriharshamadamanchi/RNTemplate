@@ -1,26 +1,26 @@
-import * as React from 'react';
+import * as React from "react";
 
-import MaterialRipple from 'react-native-material-ripple';
+import MaterialRipple from "react-native-material-ripple";
 
 interface rippleType {
-  children: any,
-  onPress?: () => void,
-  onLongPress?: () => void,
-  testID?: string,
-  accessibilityLabel?: string,
-  style?: any,
-  disabled?: boolean,
-  rippleOpacity?: number,
-  rippleContainerBorderRadius?: number
+  readonly children: any,
+  readonly onPress?: () => void,
+  readonly onLongPress?: () => void,
+  readonly testID?: string,
+  readonly accessibilityLabel?: string,
+  readonly style?: any,
+  readonly disabled?: boolean,
+  readonly rippleOpacity?: number,
+  readonly rippleContainerBorderRadius?: number
 };
 export const Ripple = ({ children, testID, accessibilityLabel, ...rest }: rippleType) => {
   return (
     <MaterialRipple
-      rippleOpacity={0.09}
-      rippleDuration={300}
-      rippleContainerBorderRadius={50}
-      testID={testID}
-      accessibilityLabel={accessibilityLabel}
+      rippleOpacity = {0.09}
+      rippleDuration = {300}
+      rippleContainerBorderRadius = {50}
+      testID = {testID}
+      accessibilityLabel = {accessibilityLabel}
       {...rest}
     >
       {children}

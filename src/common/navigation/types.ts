@@ -10,5 +10,5 @@ export type RootStackParamList = {
 
 export type LoginOrRegisterScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
-  'LoginOrRegister'
+  "LoginOrRegister"
 >;

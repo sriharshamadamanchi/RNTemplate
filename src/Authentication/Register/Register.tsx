@@ -1,32 +1,32 @@
-import * as React from 'react';
-import { KeyboardAvoidingView,  Linking, Platform, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
-import { CheckBox, CurvedButton, FTextInputWithLabel, Label, LoadingIndicator, PasswordField, PhoneNumber } from '../../common/components';
-import { Formik } from 'formik';
-import { strings } from '../../common/i18n';
-import { theme } from '../../common/theme';
-import { moderateScale } from 'react-native-size-matters';
-import { useDispatch, useSelector } from 'react-redux';
-import { registrationValidationSchema } from './validations';
-import { storeType } from '../../common/store/types';
-import { COUNTRY_CODES, DEFAULT_COUNTRY_CODE, TEXTFIELD_MAX_LENGTH } from '../../common/constants';
-import { PrimaryView } from '../../common/components/PrimaryView/PrimaryView.android';
+import * as React from "react";
+import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { CheckBox, CurvedButton, FTextInputWithLabel, Label, LoadingIndicator, PasswordField, PhoneNumber } from "../../common/components";
+import { Formik } from "formik";
+import { strings } from "../../common/i18n";
+import { theme } from "../../common/theme";
+import { moderateScale } from "react-native-size-matters";
+import { useDispatch, useSelector } from "react-redux";
+import { registrationValidationSchema } from "./validations";
+import { storeType } from "../../common/store/types";
+import { COUNTRY_CODES, DEFAULT_COUNTRY_CODE, TEXTFIELD_MAX_LENGTH } from "../../common/constants";
+import { PrimaryView } from "../../common/components/PrimaryView/PrimaryView.android";
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.background
   },
-  scrollViewStyle:{
-    paddingVertical:moderateScale(20),
-    paddingHorizontal:moderateScale(20)
+  scrollViewStyle: {
+    paddingVertical: moderateScale(20),
+    paddingHorizontal: moderateScale(20)
   },
   labelStyle: {
-    fontSize:theme.font.fontSizes.m,
-    color:theme.colors.primary
+    fontSize: theme.font.fontSizes.m,
+    color: theme.colors.primary
   },
   textInputStyle: {
-    fontSize:theme.font.fontSizes.xl,
-    color:theme.colors.primary
+    fontSize: theme.font.fontSizes.xl,
+    color: theme.colors.primary
   },
   textInputViewStyle: {
     marginBottom: moderateScale(20)
@@ -35,47 +35,47 @@ const styles = StyleSheet.create({
     marginBottom: moderateScale(20)
   },
   curvedButtonStyle: {
-    height:moderateScale(50),
-    width:'100%',
-    marginTop:moderateScale(30),
-    marginBottom:moderateScale(20)
+    height: moderateScale(50),
+    width: "100%",
+    marginTop: moderateScale(30),
+    marginBottom: moderateScale(20)
   },
-  poweredByViewStyle:{
-    flexDirection:'row',
-    justifyContent:'center',
-    alignItems: 'center',
+  poweredByViewStyle: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
     // paddingBottom:moderateScale(20)
   },
   validationLabelStyle: {
-    color:theme.colors.error,
-    fontSize:theme.font.fontSizes.m
+    color: theme.colors.error,
+    fontSize: theme.font.fontSizes.m
   },
   infostyle: {
-    marginHorizontal:moderateScale(5),
-    marginBottom:moderateScale(20),
+    marginHorizontal: moderateScale(5),
+    marginBottom: moderateScale(20)
   },
-  refStyle:{
+  refStyle: {
     width: moderateScale(1),
     height: moderateScale(1)
   },
   disclaimerTextStyle: {
     fontFamily: theme.font.fontFamily.medium,
     color: theme.colors.primary,
-    fontSize: theme.font.fontSizes.s,
+    fontSize: theme.font.fontSizes.s
   },
-  underlineStyle:{
-    textDecorationLine:'underline',
+  underlineStyle: {
+    textDecorationLine: "underline",
     fontFamily: theme.font.fontFamily.medium,
     color: theme.colors.primary,
-    fontSize: theme.font.fontSizes.s,
+    fontSize: theme.font.fontSizes.s
   },
-  smsConsentCheckBoxContainer:{
-    flexDirection:"row",
-    justifyContent:"center",
-    alignItems:"center",
-    paddingVertical:moderateScale(20),
-    paddingHorizontal:moderateScale(25)
-  },
+  smsConsentCheckBoxContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: moderateScale(20),
+    paddingHorizontal: moderateScale(25)
+  }
 });
 
 export const Register = (): React.ReactNode => {
@@ -94,7 +94,7 @@ export const Register = (): React.ReactNode => {
           <Formik
             initialValues = {{
               smsConsent: false,
-              countryCode: DEFAULT_COUNTRY_CODE,
+              countryCode: DEFAULT_COUNTRY_CODE
             }}
             onSubmit = {() => {}}
             validationSchema = {registrationValidationSchema}
@@ -107,12 +107,12 @@ export const Register = (): React.ReactNode => {
                   contentContainerStyle = {{ paddingBottom: moderateScale(50) }}
                   style = {styles.scrollViewStyle}
                   keyboardShouldPersistTaps = "handled">
-                  <LoadingIndicator color = {theme.colors.primary} loading = {loading}/>
+                  <LoadingIndicator color = {theme.colors.primary} loading = {loading} />
 
                   <FTextInputWithLabel
                     testID = "name"
                     accessibilityLabel = "name"
-                    label = {strings('Register.given_name')}
+                    label = {strings("Register.given_name")}
                     maxLength = {TEXTFIELD_MAX_LENGTH}
                     error = {touched.given_name && errors.given_name}
                     value = {values.given_name}
@@ -130,17 +130,17 @@ export const Register = (): React.ReactNode => {
                     phoneNumber = {values.phone}
                     countryCode = {values.countryCode}
                     value = {values.phone}
-                    label = {strings('Register.phone')}
+                    label = {strings("Register.phone")}
                     error = {touched.phone && errors.phone}
                     validationLabelStyle = {styles.validationLabelStyle}
                     viewStyle = {styles.textInputViewStyle}
-                    keyboardType = {'number-pad'}
+                    keyboardType = {"number-pad"}
                     onPhoneNumberBlur = {handleBlur("phone")}
                     onPhoneNumberChange = {(newPhoneNumber: string) => {
-                      setFieldValue('phone', newPhoneNumber, true);
+                      setFieldValue("phone", newPhoneNumber, true);
                     }}
                     onCountryCodeChange = {((value: string, index: number) => {
-                      setFieldValue('countryCode', value, true);
+                      setFieldValue("countryCode", value, true);
                       if (values.phone) {
 
                         /*
@@ -156,7 +156,7 @@ export const Register = (): React.ReactNode => {
                   <FTextInputWithLabel
                     testID = "email"
                     accessibilityLabel = "email"
-                    label = {strings('Register.email')}
+                    label = {strings("Register.email")}
                     error = {touched.email && errors.email}
                     value = {values.email}
                     autoCapitalize = "none"
@@ -172,7 +172,7 @@ export const Register = (): React.ReactNode => {
                   <PasswordField
                     testID = "password"
                     accessibilityLabel = "password"
-                    label = {strings('Register.password')}
+                    label = {strings("Register.password")}
                     error = {touched.password && errors.password}
                     value = {values.password}
                     onChangeText = {handleChange("password")}
@@ -184,12 +184,12 @@ export const Register = (): React.ReactNode => {
                     validationLabelStyle = {styles.validationLabelStyle}
                   />
                   <TextInput
-                    value = {''}
+                    value = {""}
                     onChange = {() => {
 
                     }}
                     onFocus = {() => {
-                      console.log('confirmpassword', confirmpassword);
+                      console.log("confirmpassword", confirmpassword);
                       confirmpassword.current.focus();
                     }}
                     style = {styles.refStyle}
@@ -198,7 +198,7 @@ export const Register = (): React.ReactNode => {
                   <PasswordField
                     testID = "confirmpassword"
                     accessibilityLabel = "confirmpassword"
-                    label = {strings('Register.confirmpassword')}
+                    label = {strings("Register.confirmpassword")}
                     error = {touched.confirmpassword && errors.confirmpassword}
                     value = {values.confirmpassword}
                     onChangeText = {handleChange("confirmpassword")}
@@ -210,24 +210,24 @@ export const Register = (): React.ReactNode => {
                     validationLabelStyle = {styles.validationLabelStyle}
                     myRef = {confirmpassword}
                   />
-                  <Label m title = {strings('Register.passwordRequirements')} style = {styles.infostyle}/>
+                  <Label m title = {strings("Register.passwordRequirements")} style = {styles.infostyle} />
                   <View style = {styles.smsConsentCheckBoxContainer}>
 
                     <CheckBox
                       onPress = {() => {
-                        setFieldValue("smsConsent", !values.smsConsent,);
+                        setFieldValue("smsConsent", !values.smsConsent);
                       }}
                       checked = {values.smsConsent}
                     />
 
                     <Text>
-                      <Text style = {styles.disclaimerTextStyle}>{ strings('Register.smsConsent') }</Text>
+                      <Text style = {styles.disclaimerTextStyle}>{ strings("Register.smsConsent") }</Text>
                       <Text
                         style = {styles.underlineStyle}
                         onPress = {() => {
 
                         }}
-                      >{ strings('Register.termsAndConditions') }</Text>
+                      >{ strings("Register.termsAndConditions") }</Text>
                       <Text style = {styles.disclaimerTextStyle}>.</Text>
                     </Text>
 
@@ -236,18 +236,18 @@ export const Register = (): React.ReactNode => {
                     testID = "register"
                     accessibilityLabel = "register"
                     disableButton = {(!isValid) || (!values.smsConsent)}
-                    title = {strings('Register.register')}
+                    title = {strings("Register.register")}
                     buttonStyle = {styles.curvedButtonStyle}
-                    events = {strings('Analytics.RegisterScreenRegister')}
+                    events = {strings("Analytics.RegisterScreenRegister")}
                     onPress = {() => {
 
                     }}
                   />
                 </ScrollView>
               );
-            }}/>
+            }} />
         </View>
       </KeyboardAvoidingView>
-      </PrimaryView>
+    </PrimaryView>
   );
 };

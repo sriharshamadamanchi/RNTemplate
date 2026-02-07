@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { CurvedButton, Label } from '../components';
-import { moderateScale } from 'react-native-size-matters';
-import { theme } from '../theme';
-import RNRestart from 'react-native-restart';
+import * as React from "react";
+import { StyleSheet, View } from "react-native";
+import { CurvedButton, Label } from "../components";
+import { moderateScale } from "react-native-size-matters";
+import { theme } from "../theme";
+import RNRestart from "react-native-restart";
 
 const styles = StyleSheet.create({
   container: {
@@ -11,45 +11,45 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.background,
     paddingTop: moderateScale(30),
     alignItems: "center",
-    justifyContent: 'space-evenly'
+    justifyContent: "space-evenly"
   },
   textStyle: {
-    margin: moderateScale(20),
+    margin: moderateScale(20)
   },
   relaunch: {
     height: moderateScale(40),
     width: moderateScale(150),
-    marginVertical: moderateScale(50),
+    marginVertical: moderateScale(50)
   },
   noticeIdContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginHorizontal: moderateScale(30),
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: moderateScale(30)
   },
   cardStyle: {
     width: moderateScale(140),
     height: moderateScale(100),
     margin: moderateScale(10),
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center'
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center"
   },
   labelStyle: {
-    paddingTop: moderateScale(12),
+    paddingTop: moderateScale(12)
   },
   copyStyle: {
-    alignSelf: 'center',
+    alignSelf: "center"
   }
 });
 
 const Error = () => {
 
   return (
-    <View style={styles.container}>
-      <Label style={styles.textStyle} xxxxl bold title={"Oops!"} />
-      <Label xxl center style={styles.textStyle} title={"Something went wrong"} />
-      <CurvedButton buttonStyle={styles.relaunch} title={"Relaunch"} onPress={() => {
+    <View style = {styles.container}>
+      <Label style = {styles.textStyle} xxxxl bold title = {"Oops!"} />
+      <Label xxl center style = {styles.textStyle} title = {"Something went wrong"} />
+      <CurvedButton buttonStyle = {styles.relaunch} title = {"Relaunch"} onPress = {() => {
         RNRestart.Restart();
       }} />
     </View>

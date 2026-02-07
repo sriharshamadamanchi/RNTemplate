@@ -1,9 +1,9 @@
-import axios from 'axios';
-import Config from 'react-native-config';
-import { API_TIMEOUT } from '../constants';
+import axios from "axios";
+import Config from "react-native-config";
+import { API_TIMEOUT } from "../constants";
 
 // Set content type as JSON for all post requests.
-axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.post["Content-Type"] = "application/json";
 
 export const mainAxios: any = axios.create({
   baseURL: Config.BASE_URL,
@@ -18,12 +18,13 @@ const requestInterceptor = {
     try {
       //
     } catch (error) {
-      console.log('error in axios.interceptors.request', error);
+      console.log("error in axios.interceptors.request", error);
     }
 
     if (__DEV__) {
       console.log("req", config);
     }
+
     return config;
   },
   onError: (error: any): any => {
@@ -40,7 +41,7 @@ const responseInterceptor = {
       console.log("response", response);
     }
 
-    if (typeof (response.data.success) !== 'undefined' && response.data.success === false) {
+    if (typeof (response.data.success) !== "undefined" && response.data.success === false) {
 
       return Promise.reject(new Error(response.data.message));
     }

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { StyleSheet } from 'react-native';
-import { moderateScale } from 'react-native-size-matters';
-import { theme } from '../../theme';
-import { Card as PaperCard } from 'react-native-paper';
+import * as React from "react";
+import { StyleSheet } from "react-native";
+import { moderateScale } from "react-native-size-matters";
+import { theme } from "../../theme";
+import { Card as PaperCard } from "react-native-paper";
 
 const styles = StyleSheet.create({
   cardStyle: {
@@ -14,26 +14,26 @@ const styles = StyleSheet.create({
 });
 
 interface cardType {
-  onPress?: () => void,
-  onLongPress?: () => void,
-  children: React.ReactElement,
-  contentStyle?: any,
-  style?: any,
-  disabled?: boolean,
-  testID?: string
+  readonly onPress?: () => void,
+  readonly onLongPress?: () => void,
+  readonly children: React.ReactElement,
+  readonly contentStyle?: any,
+  readonly style?: any,
+  readonly disabled?: boolean,
+  readonly testID?: string
 };
 
 export const Card = ({ children, disabled, onPress, onLongPress, style, contentStyle, testID }: cardType) => {
 
   return (
     <PaperCard
-      disabled={disabled}
-      onPress={onPress}
-      onLongPress={onLongPress}
-      elevation={2}
-      testID={testID}
-      contentStyle={contentStyle}
-      style={[styles.cardStyle, style]}>
+      disabled = {disabled}
+      onPress = {onPress}
+      onLongPress = {onLongPress}
+      elevation = {2}
+      testID = {testID}
+      contentStyle = {contentStyle}
+      style = {[styles.cardStyle, style]}>
 
       {children}
 

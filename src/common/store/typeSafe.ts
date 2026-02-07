@@ -1,9 +1,9 @@
 import { produce } from "immer";
 
-export function getActionType<T extends { type: string }>(action: () => T): T['type'];
+export function getActionType<T extends { type: string }>(action: () => T): T["type"];
 export function getActionType<T extends { type: string }, P>(
   action: (payload: P) => T
-): T['type'];
+): T["type"];
 
 export function getActionType(action: (...args: any[]) => { type: string }): string {
   return action({} as any).type;

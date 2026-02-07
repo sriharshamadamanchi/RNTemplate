@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { Platform, StyleSheet } from 'react-native';
-import { Switch as PaperSwitch } from 'react-native-paper';
+import * as React from "react";
+import { Platform, StyleSheet } from "react-native";
+import { Switch as PaperSwitch } from "react-native-paper";
 
 const styles = StyleSheet.create({
   containerStyle: {
@@ -9,22 +9,22 @@ const styles = StyleSheet.create({
 });
 
 type SwitchProps = {
-  checked?: boolean,
-  disabled?: boolean,
-  onChange?: (_: boolean) => void,
-  containerStyle?: any,
-  testID?: string
+  readonly checked?: boolean,
+  readonly disabled?: boolean,
+  readonly onChange?: (_: boolean) => void,
+  readonly containerStyle?: any,
+  readonly testID?: string
 };
 
 export const Switch = ({ checked, disabled, onChange = () => { }, containerStyle = {}, testID }: SwitchProps) => {
 
   return (
     <PaperSwitch
-      value={checked}
-      disabled={disabled}
-      onValueChange={() => onChange(!checked)}
-      style={[styles.containerStyle, containerStyle]}
-      testID={testID}
+      value = {checked}
+      disabled = {disabled}
+      onValueChange = {() => onChange(!checked)}
+      style = {[styles.containerStyle, containerStyle]}
+      testID = {testID}
     />
   );
 };

@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { theme } from '../../theme';
-import { StyleSheet, Text, View, } from 'react-native';
-import { moderateScale } from 'react-native-size-matters';
-import { ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE } from '../../constants';
-import { Ripple } from '../Ripple/Ripple';
+import * as React from "react";
+import { theme } from "../../theme";
+import { StyleSheet, Text, View } from "react-native";
+import { moderateScale } from "react-native-size-matters";
+import { ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE } from "../../constants";
+import { Ripple } from "../Ripple/Ripple";
 
 const normalStyles = StyleSheet.create({
   buttonStyle: {
@@ -46,35 +46,35 @@ const inverseStyles = StyleSheet.create({
   },
   iconStyle: {
     paddingRight: moderateScale(20)
-  },
+  }
 });
 
 interface curvedButtonType {
-  title: string,
-  inverse?: boolean,
-  disableButton?: boolean,
-  buttonStyle?: any,
-  textStyle?: any,
-  iconStyle?: any,
-  events?: string,
-  onPress?: () => any,
-  onLongPress?: () => void,
-  Icon?: any,
-  light?: boolean,
-  regular?: boolean,
-  medium?: boolean,
-  bold?: boolean,
-  xs?: boolean,
-  s?: boolean,
-  m?: boolean,
-  l?: boolean,
-  xl?: boolean,
-  xxl?: boolean,
-  componentName?: string,
-  resolver?: ({ userRole }: { userRole: string }) => string,
-  testID?: string,
-  accessibilityLabel?: string,
-  allowFontScaling?: boolean
+  readonly title: string,
+  readonly inverse?: boolean,
+  readonly disableButton?: boolean,
+  readonly buttonStyle?: any,
+  readonly textStyle?: any,
+  readonly iconStyle?: any,
+  readonly events?: string,
+  readonly onPress?: () => any,
+  readonly onLongPress?: () => void,
+  readonly Icon?: any,
+  readonly light?: boolean,
+  readonly regular?: boolean,
+  readonly medium?: boolean,
+  readonly bold?: boolean,
+  readonly xs?: boolean,
+  readonly s?: boolean,
+  readonly m?: boolean,
+  readonly l?: boolean,
+  readonly xl?: boolean,
+  readonly xxl?: boolean,
+  readonly componentName?: string,
+  readonly resolver?: ({ userRole }: { userRole: string }) => string,
+  readonly testID?: string,
+  readonly accessibilityLabel?: string,
+  readonly allowFontScaling?: boolean
 };
 export const CurvedButton = ({
   title,
@@ -132,32 +132,31 @@ export const CurvedButton = ({
 
   return (
     <Ripple
-      rippleContainerBorderRadius={{ ...styles.buttonStyle, ...buttonStyle }.borderRadius}
-      disabled={disableButton}
-      style={{ ...styles.buttonStyle, ...buttonStyle, ...disableButtonStyle }}
-      onPress={() => {
+      rippleContainerBorderRadius = {{ ...styles.buttonStyle, ...buttonStyle }.borderRadius}
+      disabled = {disableButton}
+      style = {{ ...styles.buttonStyle, ...buttonStyle, ...disableButtonStyle }}
+      onPress = {() => {
         if (!disableButton) {
           onPress();
         }
 
       }}
-      onLongPress={() => {
+      onLongPress = {() => {
         if (!disableButton) {
           onLongPress();
         }
       }}
-      testID={testID}
-      accessibilityLabel={accessibilityLabel}
+      testID = {testID}
+      accessibilityLabel = {accessibilityLabel}
     >
       <View
-        style={styles.buttonContainerStyle}
+        style = {styles.buttonContainerStyle}
       >
         {Icon &&
-          <View style={{ ...styles.iconStyle, ...iconStyle }}>
+          <View style = {{ ...styles.iconStyle, ...iconStyle }}>
             {Icon}
-          </View>
-        }
-        <Text maxFontSizeMultiplier={ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE} style={{ ...styles.textStyle, ...newStyle, ...textStyle }} allowFontScaling={allowFontScaling}>{title}</Text>
+          </View>}
+        <Text maxFontSizeMultiplier = {ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE} style = {{ ...styles.textStyle, ...newStyle, ...textStyle }} allowFontScaling = {allowFontScaling}>{title}</Text>
       </View>
     </Ripple>
   );

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { StackActions } from '@react-navigation/native';
+import * as React from "react";
+import { StackActions } from "@react-navigation/native";
 
 export const navigationRef: any = React.createRef();
 

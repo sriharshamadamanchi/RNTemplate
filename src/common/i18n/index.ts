@@ -1,6 +1,6 @@
-import ReactNative from 'react-native';
-import I18n from 'react-native-i18n';
-import en from './locales/en';
+import ReactNative from "react-native";
+import I18n from "react-native-i18n";
+import en from "./locales/en";
 
 // Import all locales
 
@@ -13,7 +13,7 @@ I18n.translations = { en };
 const currentLocale = I18n.currentLocale();
 
 // Is it a RTL language?
-export const isRTL: boolean = currentLocale.indexOf('he') === 0 || currentLocale.indexOf('ar') === 0;
+export const isRTL: boolean = currentLocale.indexOf("he") === 0 || currentLocale.indexOf("ar") === 0;
 
 // Allow RTL alignment in RTL languages
 ReactNative.I18nManager.allowRTL(isRTL);

@@ -1,40 +1,40 @@
-import * as React from 'react';
-import { Text } from 'react-native';
-import { theme } from '../../theme';
-import { ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE } from '../../constants';
-import { useTheme } from 'react-native-paper';
+import * as React from "react";
+import { Text } from "react-native";
+import { theme } from "../../theme";
+import { ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE } from "../../constants";
+import { useTheme } from "react-native-paper";
 
 interface labelPopsType {
-  title: string,
-  center?: boolean,
-  right?: boolean,
-  white?: boolean,
-  secondary?: boolean,
-  primary?: boolean,
-  light?: boolean,
-  regular?: boolean,
-  medium?: boolean,
-  semibold?: boolean,
-  bold?: boolean,
+  readonly title: string,
+  readonly center?: boolean,
+  readonly right?: boolean,
+  readonly white?: boolean,
+  readonly secondary?: boolean,
+  readonly primary?: boolean,
+  readonly light?: boolean,
+  readonly regular?: boolean,
+  readonly medium?: boolean,
+  readonly semibold?: boolean,
+  readonly bold?: boolean,
 
-  xs?: boolean,
-  s?: boolean,
-  m?: boolean,
-  l?: boolean,
-  xl?: boolean,
-  xl20?: boolean,
-  xl22?: boolean,
-  xxl?: boolean,
-  xxxl?: boolean,
-  xxxl34?: boolean,
-  xxxxl?: boolean,
-  xl5?: boolean,
-  style?: any,
-  ellipsizeMode?: string,
-  numberOfLines?: number,
-  testID?: string,
-  accessibilityLabel?: string,
-  allowFontScaling?: boolean
+  readonly xs?: boolean,
+  readonly s?: boolean,
+  readonly m?: boolean,
+  readonly l?: boolean,
+  readonly xl?: boolean,
+  readonly xl20?: boolean,
+  readonly xl22?: boolean,
+  readonly xxl?: boolean,
+  readonly xxxl?: boolean,
+  readonly xxxl34?: boolean,
+  readonly xxxxl?: boolean,
+  readonly xl5?: boolean,
+  readonly style?: any,
+  readonly ellipsizeMode?: string,
+  readonly numberOfLines?: number,
+  readonly testID?: string,
+  readonly accessibilityLabel?: string,
+  readonly allowFontScaling?: boolean
 
 };
 export const Label = ({
@@ -85,8 +85,8 @@ export const Label = ({
   primary && (newStyle.color = mTheme.colors.primary);
 
   // Align Self
-  center && (newStyle.alignSelf = newStyle.textAlign = 'center');
-  right && (newStyle.textAlign = 'right');
+  center && (newStyle.alignSelf = newStyle.textAlign = "center");
+  right && (newStyle.textAlign = "right");
 
   // Set font Style
   light && (newStyle.fontFamily = theme.font.fontFamily.light);
@@ -110,7 +110,7 @@ export const Label = ({
   xl5 && (newStyle.fontSize = theme.font.fontSizes.xl5);
 
   return (
-    <Text testID={testID} accessibilityLabel={accessibilityLabel} maxFontSizeMultiplier={ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE} numberOfLines={(ellipsizeMode === undefined) ? undefined : numberOfLines} style={{ ...newStyle, ...style }} allowFontScaling={allowFontScaling}>
+    <Text testID = {testID} accessibilityLabel = {accessibilityLabel} maxFontSizeMultiplier = {ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE} numberOfLines = {(ellipsizeMode === undefined) ? undefined : numberOfLines} style = {{ ...newStyle, ...style }} allowFontScaling = {allowFontScaling}>
       {title}
     </Text>
   );

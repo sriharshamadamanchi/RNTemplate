@@ -1,7 +1,7 @@
-import React from 'react';
-import { theme } from '../../theme';
-import { StyleSheet, Text, TouchableOpacity, } from 'react-native';
-import { ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE } from '../../constants';
+import React from "react";
+import { theme } from "../../theme";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE } from "../../constants";
 
 const styles = StyleSheet.create({
   buttonStyle: {
@@ -15,27 +15,27 @@ const styles = StyleSheet.create({
   }
 });
 interface anchorButtonType {
-  title: string,
-  underline?: boolean,
-  buttonStyle?: any,
-  textStyle?: any,
-  underLineStyleProp?: any,
-  events?: string,
-  onPress?: () => any,
-  light?: boolean,
-  regular?: boolean,
-  medium?: boolean,
-  semibold?: boolean,
-  bold?: boolean,
-  xs?: boolean,
-  s?: boolean,
-  m?: boolean,
-  l?: boolean,
-  xl?: boolean,
-  xxl?: boolean,
-  testID?: string,
-  disabled?: boolean,
-  accessibilityLabel?: string
+  readonly title: string,
+  readonly underline?: boolean,
+  readonly buttonStyle?: any,
+  readonly textStyle?: any,
+  readonly underLineStyleProp?: any,
+  readonly events?: string,
+  readonly onPress?: () => any,
+  readonly light?: boolean,
+  readonly regular?: boolean,
+  readonly medium?: boolean,
+  readonly semibold?: boolean,
+  readonly bold?: boolean,
+  readonly xs?: boolean,
+  readonly s?: boolean,
+  readonly m?: boolean,
+  readonly l?: boolean,
+  readonly xl?: boolean,
+  readonly xxl?: boolean,
+  readonly testID?: string,
+  readonly disabled?: boolean,
+  readonly accessibilityLabel?: string
 };
 
 export const AnchorButton = ({
@@ -88,15 +88,15 @@ export const AnchorButton = ({
 
   return (
     <TouchableOpacity
-      disabled={disabled}
-      testID={testID}
-      accessibilityLabel={accessibilityLabel}
-      style={{ ...underLineStyle, ...styles.buttonStyle, ...buttonStyle, ...disableButtonStyle }}
-      onPress={() => {
+      disabled = {disabled}
+      testID = {testID}
+      accessibilityLabel = {accessibilityLabel}
+      style = {{ ...underLineStyle, ...styles.buttonStyle, ...buttonStyle, ...disableButtonStyle }}
+      onPress = {() => {
         onPress();
       }}
     >
-      <Text maxFontSizeMultiplier={ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE} style={{ ...styles.textStyle, ...newStyle, ...textStyle }} >{title}</Text>
+      <Text maxFontSizeMultiplier = {ACCESSIBILITY_MAXIMUM_FONT_SIZE_SCALE} style = {{ ...styles.textStyle, ...newStyle, ...textStyle }} >{title}</Text>
     </TouchableOpacity>
   );
 };

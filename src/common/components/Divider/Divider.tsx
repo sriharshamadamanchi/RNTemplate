@@ -1,7 +1,7 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { StyleSheet, View } from 'react-native';
-import { theme } from '../../theme';
+import { StyleSheet, View } from "react-native";
+import { theme } from "../../theme";
 
 const styles = StyleSheet.create({
   dividerStyle: {
@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
 });
 
 interface dividerType {
-  style?: any
+  readonly style?: any
 };
 
 export const Divider = ({ style }: dividerType) => {
   return (
-    <View style={[styles.dividerStyle, style]} />
+    <View style = {[styles.dividerStyle, style]} />
   );
 };

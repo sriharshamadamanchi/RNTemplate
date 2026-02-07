@@ -1,6 +1,6 @@
 import React from "react";
 import { AppState, AppStateStatus, Platform } from "react-native";
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from "@react-navigation/stack";
 import { theme } from "./common/theme";
 import { moderateScale } from "react-native-size-matters";
 import { Label } from "./common/components";
@@ -47,72 +47,72 @@ export const Home = () => {
   }
 
   return (
-    <Stack.Navigator key={initialRouteName} initialRouteName={initialRouteName}
-      screenOptions={{
-        headerTitleAlign: 'center',
+    <Stack.Navigator key = {initialRouteName} initialRouteName = {initialRouteName}
+      screenOptions = {{
+        headerTitleAlign: "center",
         headerBackTitle: "",
         headerStyle: {
           backgroundColor: mtheme.colors.background,
-          height: Platform.OS === 'android' ? moderateScale(100) : 0
+          height: Platform.OS === "android" ? moderateScale(100) : 0
         },
         headerTitleStyle: {
           fontSize: theme.font.fontSizes.xl20,
           color: mtheme.colors.tertiary,
           fontFamily: theme.font.fontFamily.bold,
-          marginHorizontal: moderateScale(20),
+          marginHorizontal: moderateScale(20)
         },
-        headerTitle: ({ children }: { children: string }) => {
+        headerTitle: ({ children }: { readonly children: string }) => {
           return (
-            <Label primary bold xl20 title={children} ellipsizeMode={"tail"} numberOfLines={1} style={{ marginHorizontal: moderateScale(25) }} />
+            <Label primary bold xl20 title = {children} ellipsizeMode = {"tail"} numberOfLines = {1} style = {{ marginHorizontal: moderateScale(25) }} />
           );
-        },
+        }
       }}
     >
       {
         isLoggedIn ?
           <Stack.Screen
-            options={(): any => {
+            options = {(): any => {
               return {
                 title: "Home"
               };
             }}
-            name="HomeTab" component={HomeTab} />
+            name = "HomeTab" component = {HomeTab} />
           :
           <>
-            <Stack.Screen options={(): any => {
+            <Stack.Screen options = {(): any => {
               return {
                 headerShown: false
               };
             }}
-              name="LoginOrRegister" component={LoginOrRegister}
+            name = "LoginOrRegister" component = {LoginOrRegister}
             />
 
             <Stack.Screen
-              options={(): any => {
+              options = {(): any => {
                 return {
                   headerShown: false
                 };
               }}
-              name="Login"
-              component={Login}
+              name = "Login"
+              component = {Login}
             />
             <Stack.Screen
-              options={(): any => {
+              options = {(): any => {
                 return {
                   name: "Register"
                 };
               }}
-              name="Register"
-              component={Register}
+              name = "Register"
+              component = {Register}
             />
             <Stack.Screen
-              options={(): any => {
+              options = {(): any => {
                 return {
                   headerShown: false
                 };
               }}
-              name="ForgotPassword"
-              component={ForgotPassword}
+              name = "ForgotPassword"
+              component = {ForgotPassword}
             />
           </>
       }

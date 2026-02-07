@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { RadioButton as PaperRadioButton, useTheme } from 'react-native-paper';
+import * as React from "react";
+import { StyleSheet, View } from "react-native";
+import { RadioButton as PaperRadioButton, useTheme } from "react-native-paper";
 
 const styles = StyleSheet.create({
   containerStyle: {
@@ -9,12 +9,12 @@ const styles = StyleSheet.create({
 });
 
 type RadioButtonProps = {
-  value: string,
-  checked?: string,
-  disabled?: boolean,
-  onPress?: () => void,
-  containerStyle?: any,
-  testID?: string
+  readonly value: string,
+  readonly checked?: string,
+  readonly disabled?: boolean,
+  readonly onPress?: () => void,
+  readonly containerStyle?: any,
+  readonly testID?: string
 };
 
 export const RadioButton = ({ value, disabled, checked, onPress = () => { }, containerStyle = {}, testID }: RadioButtonProps) => {
@@ -22,14 +22,14 @@ export const RadioButton = ({ value, disabled, checked, onPress = () => { }, con
   const mTheme = useTheme()
 
   return (
-    <View style={[styles.containerStyle, containerStyle]}>
+    <View style = {[styles.containerStyle, containerStyle]}>
       <PaperRadioButton.Android
-        value={value}
-        status={checked === value ? 'checked' : 'unchecked'}
-        disabled={disabled}
-        onPress={onPress}
-        uncheckedColor={mTheme.colors.primary}
-        testID={testID}
+        value = {value}
+        status = {checked === value ? "checked" : "unchecked"}
+        disabled = {disabled}
+        onPress = {onPress}
+        uncheckedColor = {mTheme.colors.primary}
+        testID = {testID}
       />
     </View>
   );

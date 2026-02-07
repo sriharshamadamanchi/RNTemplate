@@ -1,4 +1,4 @@
-import { getActionType } from './typeSafe';
+import { getActionType } from "./typeSafe";
 import {
   failedLoadingAction,
   hideLoaderAction,
@@ -6,18 +6,18 @@ import {
   showLoaderAction,
   startLoadingAction,
   successLoadingAction
-} from '../loaderRedux/actions';
+} from "../loaderRedux/actions";
 
-import createSagaMiddleware from 'redux-saga';
-import { reducers } from './combineReducers';
-import { sagas } from './combineSagas';
-import { persistReducer, persistStore } from 'redux-persist';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
-import { Tuple, configureStore } from '@reduxjs/toolkit';
+import createSagaMiddleware from "redux-saga";
+import { reducers } from "./combineReducers";
+import { sagas } from "./combineSagas";
+import { persistReducer, persistStore } from "redux-persist";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
+import { Tuple, configureStore } from "@reduxjs/toolkit";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   whitelist: ["login"], // Only these reducers will be persisted.
   storage: AsyncStorage,
   stateReconciler: autoMergeLevel2
@@ -34,7 +34,7 @@ const internetCheckerMiddleware = (store: any) => (next: any) => (action: any) =
     getActionType(hideLoaderAction),
     getActionType(successLoadingAction),
     getActionType(failedLoadingAction), // We should allow hide Loader
-    getActionType(resetAllLoadersAction), // We should allow reset all Loader
+    getActionType(resetAllLoadersAction) // We should allow reset all Loader
   ];
   if (true || whiteListActions.includes(action.type) || !action.type.startsWith("src/")) {
     return next(action);
@@ -42,13 +42,11 @@ const internetCheckerMiddleware = (store: any) => (next: any) => (action: any) =
 };
 
 const sagaMiddleware = createSagaMiddleware();
-export const store: any = configureStore(
-  {
-    reducer: persistedReducer,
-    middleware: () => new Tuple(sagaMiddleware, internetCheckerMiddleware),
-    preloadedState: initState
-  }
-)
+export const store: any = configureStore({
+  reducer: persistedReducer,
+  middleware: () => new Tuple(sagaMiddleware, internetCheckerMiddleware),
+  preloadedState: initState
+})
 
 export const persistor: any = persistStore(store);
 sagaMiddleware.run(sagas);
